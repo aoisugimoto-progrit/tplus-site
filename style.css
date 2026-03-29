@@ -1242,11 +1242,6 @@
             border-color: rgba(10, 80, 70, 0.4);
         }
 
-        .quiz-icon {
-            font-size: 60px;
-            margin-bottom: 20px;
-        }
-
         .quiz-card h3 {
             color: rgba(15, 35, 45, 1);
             font-size: 22px;
@@ -1287,10 +1282,6 @@
 
             .quiz-card {
                 padding: 30px 20px;
-            }
-
-            .quiz-icon {
-                font-size: 50px;
             }
 
             .quiz-card h3 {
