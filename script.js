@@ -1,0 +1,95 @@
+// スムーススクロール
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const href = this.getAttribute('href');
+        const target = document.querySelector(href);
+        if (target) {
+            // ヘッダー分を考慮してスクロール位置を調整
+            const offsetTop = target.offsetTop - 90;
+            window.scrollTo({
+                top: offsetTop,
+                behavior: 'smooth'
+            });
+
+            // サイドバーのアクティブリンク切り替え
+            document.querySelectorAll('.sidebar nav a').forEach(link => {
+                link.classList.remove('active');
+            });
+            this.classList.add('active');
+        }
+    });
+});
+
+// ヘッダーのスクロール時透明度変更
+window.addEventListener('scroll', () => {
+    const header = document.querySelector('.site-header');
+    if (header) {
+        if (window.scrollY > 50) {
+            header.style.boxShadow = '0 2px 15px rgba(45, 95, 76, 0.12)';
+        } else {
+            header.style.boxShadow = '0 2px 10px rgba(45, 95, 76, 0.08)';
+        }
+    }
+
+    // サイドバーのアクティブリンク自動変更
+    const sections = document.querySelectorAll('section[id]');
+    const sidebarLinks = document.querySelectorAll('.sidebar nav a');
+
+    if (sections.length > 0 && sidebarLinks.length > 0) {
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            if (window.scrollY >= sectionTop - 150) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        sidebarLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${current}`) {
+                link.classList.add('active');
+            }
+        });
+    }
+});
+
+// サイドバーリサイズ機能
+const sidebar = document.querySelector('.sidebar');
+const resizer = document.querySelector('.sidebar-resizer');
+const mainContent = document.querySelector('.main-content.with-sidebar');
+
+if (sidebar && resizer && mainContent) {
+    let isResizing = false;
+    let startX = 0;
+    let startWidth = 0;
+    const minWidth = 200;
+    const maxWidth = 500;
+
+    resizer.addEventListener('mousedown', (e) => {
+        isResizing = true;
+        startX = e.clientX;
+        startWidth = sidebar.offsetWidth;
+        document.body.style.cursor = 'col-resize';
+        document.body.style.userSelect = 'none';
+    });
+
+    document.addEventListener('mousemove', (e) => {
+        if (!isResizing) return;
+
+        const width = startWidth + (e.clientX - startX);
+
+        if (width >= minWidth && width <= maxWidth) {
+            sidebar.style.width = width + 'px';
+            mainContent.style.marginLeft = width + 'px';
+        }
+    });
+
+    document.addEventListener('mouseup', () => {
+        if (isResizing) {
+            isResizing = false;
+            document.body.style.cursor = '';
+            document.body.style.userSelect = '';
+        }
+    });
+}
