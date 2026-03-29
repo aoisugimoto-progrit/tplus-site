@@ -1027,3 +1027,60 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* スケジュールテーブル */
+        .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            background: white;
+            box-shadow: 0 4px 16px rgba(10, 60, 55, 0.1);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .schedule-table thead {
+            background: linear-gradient(135deg, rgba(10, 80, 70, 1) 0%, rgba(15, 30, 80, 1) 100%);
+            color: white;
+        }
+
+        .schedule-table thead th {
+            padding: 18px 20px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 16px;
+            letter-spacing: 0.5px;
+        }
+
+        .schedule-table tbody td {
+            padding: 16px 20px;
+            border-bottom: 1px solid rgba(10, 80, 70, 0.1);
+            font-size: 15px;
+            color: #4B5563;
+        }
+
+        .schedule-table tbody tr:hover {
+            background: rgba(10, 80, 70, 0.03);
+            transition: background 0.3s;
+        }
+
+        .schedule-table tbody td:first-child {
+            font-weight: 600;
+            color: rgba(15, 35, 45, 1);
+            width: 80px;
+        }
+
+        @media (max-width: 768px) {
+            .schedule-table {
+                font-size: 13px;
+            }
+
+            .schedule-table thead th,
+            .schedule-table tbody td {
+                padding: 12px 10px;
+            }
+
+            .schedule-table tbody td:first-child {
+                width: 60px;
+            }
+        }
