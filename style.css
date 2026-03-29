@@ -1099,23 +1099,22 @@
         }
 
         .timeline-events .event {
-            background: rgba(10, 80, 70, 0.08);
-            border: 2px solid rgba(10, 80, 70, 0.2);
+            background: linear-gradient(135deg, #A78BFA 0%, #EC4899 100%);
+            border: none;
             border-radius: 8px;
             padding: 12px 8px;
             text-align: center;
             font-weight: 600;
-            color: rgba(15, 35, 45, 1);
+            color: white;
             font-size: 13px;
             line-height: 1.4;
             transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(167, 139, 250, 0.3);
         }
 
         .timeline-events .event:hover {
-            background: rgba(10, 80, 70, 0.12);
-            border-color: rgba(10, 80, 70, 0.4);
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(10, 60, 55, 0.15);
+            box-shadow: 0 6px 16px rgba(167, 139, 250, 0.4);
         }
 
         @media (max-width: 768px) {
