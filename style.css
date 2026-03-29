@@ -78,12 +78,13 @@
             backdrop-filter: blur(15px);
             z-index: 1000;
             box-shadow: 0 2px 10px rgba(10, 60, 55, 0.08);
-            padding: 0 20px;
+            padding: 0;
         }
 
         .header-container {
-            max-width: 1400px;
-            margin: 0 auto;
+            max-width: 100%;
+            margin: 0;
+            padding: 0 30px 0 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
