@@ -53,104 +53,54 @@
 
                 <p>T＋では、1年を通して様々な活動を行っています。</p>
 
-                <div style="overflow-x: auto;">
-                    <table class="schedule-table">
-                        <thead>
-                            <tr>
-                                <th>月</th>
-                                <th>発表</th>
-                                <th>新歓活動</th>
-                                <th>教育</th>
-                                <th>イベント</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>3月</strong></td>
-                                <td>-</td>
-                                <td>新歓活動</td>
-                                <td>-</td>
-                                <td>YEP</td>
-                            </tr>
-                            <tr>
-                                <td><strong>4月</strong></td>
-                                <td>-</td>
-                                <td>新歓活動</td>
-                                <td>-</td>
-                                <td>-</td>
-                            </tr>
-                            <tr>
-                                <td><strong>5月</strong></td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>教育</td>
-                                <td>オンボレク</td>
-                            </tr>
-                            <tr>
-                                <td><strong>6月</strong></td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>教育</td>
-                                <td>-</td>
-                            </tr>
-                            <tr>
-                                <td><strong>7月</strong></td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                            </tr>
-                            <tr>
-                                <td><strong>8月</strong></td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>夏合宿</td>
-                            </tr>
-                            <tr>
-                                <td><strong>9月</strong></td>
-                                <td>-</td>
-                                <td>新歓活動</td>
-                                <td>-</td>
-                                <td>-</td>
-                            </tr>
-                            <tr>
-                                <td><strong>10月</strong></td>
-                                <td>-</td>
-                                <td>新歓活動</td>
-                                <td>-</td>
-                                <td>-</td>
-                            </tr>
-                            <tr>
-                                <td><strong>11月</strong></td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>教育</td>
-                                <td>-</td>
-                            </tr>
-                            <tr>
-                                <td><strong>12月</strong></td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>教育</td>
-                                <td>東西戦・忘年会</td>
-                            </tr>
-                            <tr>
-                                <td><strong>1月</strong></td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                            </tr>
-                            <tr>
-                                <td><strong>2月</strong></td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>冬合宿</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="timeline-container">
+                    <!-- 月ラベル -->
+                    <div class="timeline-months">
+                        <div class="month">3月</div>
+                        <div class="month">4月</div>
+                        <div class="month">5月</div>
+                        <div class="month">6月</div>
+                        <div class="month">7月</div>
+                        <div class="month">8月</div>
+                        <div class="month">9月</div>
+                        <div class="month">10月</div>
+                        <div class="month">11月</div>
+                        <div class="month">12月</div>
+                        <div class="month">1月</div>
+                        <div class="month">2月</div>
+                    </div>
+
+                    <!-- 活動バー -->
+                    <div class="timeline-activities">
+                        <!-- 新歓活動（3-4月） -->
+                        <div class="activity-bar activity-shinkan" style="grid-column: 1 / 3;">
+                            <span>新歓活動</span>
+                        </div>
+
+                        <!-- 教育（5-6月） -->
+                        <div class="activity-bar activity-education" style="grid-column: 3 / 5;">
+                            <span>教育</span>
+                        </div>
+
+                        <!-- 新歓活動（9-10月） -->
+                        <div class="activity-bar activity-shinkan" style="grid-column: 7 / 9;">
+                            <span>新歓活動</span>
+                        </div>
+
+                        <!-- 教育（11-12月） -->
+                        <div class="activity-bar activity-education" style="grid-column: 9 / 11;">
+                            <span>教育</span>
+                        </div>
+                    </div>
+
+                    <!-- イベント -->
+                    <div class="timeline-events">
+                        <div class="event" style="grid-column: 1;">YEP</div>
+                        <div class="event" style="grid-column: 3;">オンボレク</div>
+                        <div class="event" style="grid-column: 6;">夏合宿</div>
+                        <div class="event" style="grid-column: 10;">東西戦<br>忘年会</div>
+                        <div class="event" style="grid-column: 12;">冬合宿</div>
+                    </div>
                 </div>
             </section>
 
