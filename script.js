@@ -21,17 +21,34 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// ページトランジション
-document.addEventListener('DOMContentLoaded', () => {
-    // オーバーレイ要素を作成
+// ページトランジション（即座にオーバーレイを作成）
+(function() {
+    // オーバーレイ要素を即座に作成
     const overlay = document.createElement('div');
     overlay.className = 'page-transition-overlay';
-    document.body.appendChild(overlay);
 
-    // ページ読み込み後、オーバーレイをフェードアウト
-    setTimeout(() => {
+    // ページ遷移中かチェック
+    const isTransitioning = sessionStorage.getItem('pageTransitioning') === 'true';
+
+    if (!isTransitioning) {
         overlay.classList.add('fade-out');
-    }, 50);
+    }
+
+    document.documentElement.appendChild(overlay);
+
+    // ページ遷移フラグをクリア
+    sessionStorage.removeItem('pageTransitioning');
+})();
+
+document.addEventListener('DOMContentLoaded', () => {
+    const overlay = document.querySelector('.page-transition-overlay');
+
+    // オーバーレイをフェードアウト
+    if (!overlay.classList.contains('fade-out')) {
+        setTimeout(() => {
+            overlay.classList.add('fade-out');
+        }, 100);
+    }
 
     // ナビゲーションリンクにページトランジションを追加
     const navLinks = document.querySelectorAll('.header-nav a:not([href^="#"])');
@@ -52,6 +69,9 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             e.preventDefault();
+
+            // ページ遷移フラグをセット
+            sessionStorage.setItem('pageTransitioning', 'true');
 
             // オーバーレイをフェードイン
             overlay.classList.remove('fade-out');
