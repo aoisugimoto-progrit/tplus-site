@@ -473,12 +473,15 @@
         .message-title {
             font-size: clamp(48px, 7vw, 72px);
             font-weight: 800;
-            color: white;
+            background: linear-gradient(90deg, #4ADE80 0%, #22D3EE 50%, #3B82F6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             margin-bottom: 60px;
             letter-spacing: 0.03em;
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
             line-height: 1.2;
-            text-shadow: 0 6px 30px rgba(0, 0, 0, 0.5);
+            filter: drop-shadow(0 6px 30px rgba(0, 0, 0, 0.5));
         }
 
         .message-text {
