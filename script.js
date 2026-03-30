@@ -103,11 +103,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const sidebarToggleBtn = document.getElementById('sidebar-toggle');
     const sidebar = document.querySelector('.sidebar');
     const mainContent = document.querySelector('.main-content.with-sidebar');
+    const toggleArrow = document.querySelector('.toggle-arrow');
 
     if (sidebarToggleBtn && sidebar && mainContent) {
         sidebarToggleBtn.addEventListener('click', () => {
-            sidebar.classList.toggle('hidden');
+            const isHidden = sidebar.classList.toggle('hidden');
             mainContent.classList.toggle('sidebar-closed');
+
+            if (toggleArrow) {
+                toggleArrow.textContent = isHidden ? '▶' : '◀';
+            }
         });
     }
 

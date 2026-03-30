@@ -205,13 +205,13 @@
             position: absolute;
             top: 20px;
             right: 20px;
-            width: 32px;
-            height: 32px;
+            width: 36px;
+            height: 36px;
             background: rgba(255, 255, 255, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.3);
             border-radius: 6px;
             color: white;
-            font-size: 18px;
+            font-size: 16px;
             cursor: pointer;
             display: flex;
             align-items: center;
@@ -223,10 +223,31 @@
         .sidebar-toggle:hover {
             background: rgba(255, 255, 255, 0.2);
             border-color: rgba(255, 255, 255, 0.5);
+            transform: scale(1.1);
         }
 
-        .sidebar-toggle span {
+        .sidebar-toggle .toggle-arrow {
             line-height: 1;
+            transition: transform 0.3s;
+        }
+
+        /* サイドバーが閉じている時 */
+        .sidebar.hidden .sidebar-toggle {
+            position: fixed;
+            left: 10px;
+            top: 90px;
+            right: auto;
+            background: rgba(10, 80, 70, 0.9);
+            border-color: rgba(10, 80, 70, 1);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .sidebar.hidden .sidebar-toggle .toggle-arrow::before {
+            content: '▶';
+        }
+
+        .sidebar.hidden .sidebar-toggle .toggle-arrow {
+            display: none;
         }
 
         .sidebar-resizer {
