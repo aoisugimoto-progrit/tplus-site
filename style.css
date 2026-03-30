@@ -154,8 +154,9 @@
 
         /* ヘッダー透明版（ホームページ専用） */
         .header-transparent {
-            background: transparent;
-            box-shadow: none;
+            background: transparent !important;
+            backdrop-filter: none !important;
+            box-shadow: none !important;
         }
 
         .header-transparent .logo-text {
