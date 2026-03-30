@@ -152,6 +152,28 @@
             width: 100%;
         }
 
+        /* ヘッダー透明版（ホームページ専用） */
+        .header-transparent {
+            background: transparent;
+            box-shadow: none;
+        }
+
+        .header-transparent .logo-text {
+            color: white;
+        }
+
+        .header-transparent .header-nav a {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .header-transparent .header-nav a::after {
+            background: white;
+        }
+
+        .header-transparent .header-nav a:hover {
+            color: white;
+        }
+
         /* サイドバー */
         .sidebar {
             position: fixed;
