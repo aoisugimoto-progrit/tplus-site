@@ -54,6 +54,19 @@ window.addEventListener('scroll', () => {
     }
 });
 
+// サイドバートグル機能
+document.addEventListener('DOMContentLoaded', () => {
+    const navToggles = document.querySelectorAll('.nav-toggle');
+
+    navToggles.forEach(toggle => {
+        toggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            const parent = toggle.closest('.nav-parent');
+            parent.classList.toggle('collapsed');
+        });
+    });
+});
+
 // サイドバーリサイズ機能
 const sidebar = document.querySelector('.sidebar');
 const resizer = document.querySelector('.sidebar-resizer');
