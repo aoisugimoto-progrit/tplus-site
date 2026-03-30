@@ -109,6 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
         sidebarToggleBtn.addEventListener('click', () => {
             const isHidden = sidebar.classList.toggle('hidden');
             mainContent.classList.toggle('sidebar-closed');
+            document.body.classList.toggle('sidebar-closed', isHidden);
 
             if (toggleArrow) {
                 toggleArrow.textContent = isHidden ? '▶' : '◀';
