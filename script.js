@@ -56,35 +56,33 @@ if (backToTopButton) {
     });
 }
 
-// ホームページのヘッダースクロール時フェードアウト
-const homeHeader = document.getElementById('home-header');
-
 // ヘッダーのスクロール時透明度変更＆ページトップボタン表示制御
 window.addEventListener('scroll', () => {
     const header = document.querySelector('.site-header');
     const scrollY = window.scrollY;
 
-    // ホームページのヘッダーをスクロール時に消す
-    if (homeHeader) {
+    // 全ページのヘッダーをスクロール時に消す
+    if (header) {
         if (scrollY > 100) {
             const opacity = Math.max(0, 1 - (scrollY - 100) / 200);
-            homeHeader.style.opacity = opacity;
+            header.style.opacity = opacity;
             if (opacity === 0) {
-                homeHeader.style.pointerEvents = 'none';
+                header.style.pointerEvents = 'none';
             } else {
-                homeHeader.style.pointerEvents = 'auto';
+                header.style.pointerEvents = 'auto';
             }
         } else {
-            homeHeader.style.opacity = '1';
-            homeHeader.style.pointerEvents = 'auto';
+            header.style.opacity = '1';
+            header.style.pointerEvents = 'auto';
         }
-    }
 
-    if (header && !homeHeader) {
-        if (scrollY > 50) {
-            header.style.boxShadow = '0 2px 15px rgba(45, 95, 76, 0.12)';
-        } else {
-            header.style.boxShadow = '0 2px 10px rgba(45, 95, 76, 0.08)';
+        // ボックスシャドウの調整（透明でないヘッダー用）
+        if (!header.classList.contains('header-transparent')) {
+            if (scrollY > 50) {
+                header.style.boxShadow = '0 2px 15px rgba(45, 95, 76, 0.12)';
+            } else {
+                header.style.boxShadow = '0 2px 10px rgba(45, 95, 76, 0.08)';
+            }
         }
     }
 
