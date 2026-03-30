@@ -81,6 +81,10 @@
             padding: 0;
         }
 
+        .site-header.header-transparent:not(#home-header) {
+            background: linear-gradient(135deg, rgba(20, 40, 30, 0.85) 0%, rgba(10, 80, 70, 0.75) 40%, rgba(15, 30, 80, 0.85) 100%), url('hero-bg.jpg') center/cover;
+        }
+
         .header-container {
             max-width: 100%;
             margin: 0;
@@ -182,11 +186,11 @@
 
         /* サイドバー */
         .sidebar {
-            position: fixed;
+            position: absolute;
             left: 0;
-            top: max(calc(70px + 33vh), 370px);
+            top: 370px;
             width: 260px;
-            height: calc(100vh - max(33vh, 300px) - 70px);
+            height: calc(100vh - 370px);
             background: linear-gradient(180deg, rgba(15, 35, 45, 0.95) 0%, rgba(10, 25, 35, 0.98) 100%);
             backdrop-filter: blur(10px);
             color: white;
@@ -195,7 +199,7 @@
             z-index: 50;
             box-shadow: 4px 0 20px rgba(0, 0, 0, 0.3);
             display: none;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, top 0.3s ease, height 0.3s ease;
         }
 
         .sidebar.active {
@@ -209,7 +213,7 @@
 
         .sidebar-toggle {
             position: fixed;
-            top: calc(max(calc(70px + 33vh), 370px) + 20px);
+            top: 390px;
             left: 220px;
             width: 36px;
             height: 36px;
@@ -222,7 +226,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.3s;
+            transition: top 0.3s ease, left 0.3s ease, background 0.3s ease, transform 0.3s ease;
             z-index: 1001;
         }
 
