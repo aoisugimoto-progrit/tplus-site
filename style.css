@@ -33,33 +33,33 @@
         }
 
         /* ページトランジション */
+        .page-transition-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(20, 40, 30, 0.98) 0%, rgba(10, 80, 70, 0.95) 40%, rgba(15, 30, 80, 0.98) 100%);
+            z-index: 9999;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.4s ease-in-out;
+        }
+
+        .page-transition-overlay.active {
+            opacity: 1;
+        }
+
         body {
-            animation: pageTransitionIn 0.6s ease-out;
+            animation: pageLoadFadeIn 0.5s ease-out;
         }
 
-        body.page-transitioning {
-            animation: pageTransitionOut 0.5s ease-in forwards;
-        }
-
-        @keyframes pageTransitionIn {
+        @keyframes pageLoadFadeIn {
             from {
                 opacity: 0;
-                transform: translateY(20px);
             }
             to {
                 opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes pageTransitionOut {
-            from {
-                opacity: 1;
-                transform: translateY(0);
-            }
-            to {
-                opacity: 0;
-                transform: translateY(-20px);
             }
         }
 

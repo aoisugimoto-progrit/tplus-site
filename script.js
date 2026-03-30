@@ -23,6 +23,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // ページトランジション
 document.addEventListener('DOMContentLoaded', () => {
+    // オーバーレイ要素を作成
+    const overlay = document.createElement('div');
+    overlay.className = 'page-transition-overlay';
+    document.body.appendChild(overlay);
+
     // ナビゲーションリンクにページトランジションを追加
     const navLinks = document.querySelectorAll('.header-nav a:not([href^="#"])');
 
@@ -43,13 +48,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
             e.preventDefault();
 
-            // トランジションアニメーション開始
-            document.body.classList.add('page-transitioning');
+            // オーバーレイを表示
+            overlay.classList.add('active');
 
             // アニメーション後にページ遷移
             setTimeout(() => {
                 window.location.href = href;
-            }, 500);
+            }, 400);
         });
     });
 });
