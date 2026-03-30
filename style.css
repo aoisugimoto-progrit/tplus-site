@@ -86,7 +86,7 @@
             margin: 0;
             padding: 0 30px 0 20px;
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-end;
             align-items: center;
             height: 70px;
         }
@@ -374,6 +374,7 @@
 
         .main-content.with-sidebar {
             margin-left: 260px;
+            margin-top: 0;
             transition: margin-left 0.3s ease;
         }
 
