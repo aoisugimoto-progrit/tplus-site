@@ -28,6 +28,11 @@ document.addEventListener('DOMContentLoaded', () => {
     overlay.className = 'page-transition-overlay';
     document.body.appendChild(overlay);
 
+    // ページ読み込み後、オーバーレイをフェードアウト
+    setTimeout(() => {
+        overlay.classList.add('fade-out');
+    }, 50);
+
     // ナビゲーションリンクにページトランジションを追加
     const navLinks = document.querySelectorAll('.header-nav a:not([href^="#"])');
 
@@ -48,13 +53,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
             e.preventDefault();
 
-            // オーバーレイを表示
-            overlay.classList.add('active');
+            // オーバーレイをフェードイン
+            overlay.classList.remove('fade-out');
 
             // アニメーション後にページ遷移
             setTimeout(() => {
                 window.location.href = href;
-            }, 400);
+            }, 350);
         });
     });
 });

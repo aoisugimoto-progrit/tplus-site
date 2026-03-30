@@ -42,25 +42,12 @@
             background: linear-gradient(135deg, rgba(20, 40, 30, 0.98) 0%, rgba(10, 80, 70, 0.95) 40%, rgba(15, 30, 80, 0.98) 100%);
             z-index: 9999;
             pointer-events: none;
-            opacity: 0;
-            transition: opacity 0.4s ease-in-out;
-        }
-
-        .page-transition-overlay.active {
             opacity: 1;
+            transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        body {
-            animation: pageLoadFadeIn 0.5s ease-out;
-        }
-
-        @keyframes pageLoadFadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
+        .page-transition-overlay.fade-out {
+            opacity: 0;
         }
 
         /* タイポグラフィ - 大胆なコントラスト */
