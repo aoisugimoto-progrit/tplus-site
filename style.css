@@ -190,21 +190,22 @@
             z-index: 50;
             box-shadow: 4px 0 20px rgba(0, 0, 0, 0.3);
             display: none;
-            transition: none;
+            transition: transform 0.3s ease;
         }
 
         .sidebar.active {
             display: block;
+            transform: translateX(0);
         }
 
-        .sidebar.hidden {
+        .sidebar.active.hidden {
             transform: translateX(-100%);
         }
 
         .sidebar-toggle {
-            position: absolute;
-            top: 20px;
-            right: 20px;
+            position: fixed;
+            top: 90px;
+            left: 220px;
             width: 36px;
             height: 36px;
             background: rgba(255, 255, 255, 0.1);
@@ -217,7 +218,7 @@
             align-items: center;
             justify-content: center;
             transition: all 0.3s;
-            z-index: 101;
+            z-index: 1001;
         }
 
         .sidebar-toggle:hover {
@@ -231,23 +232,15 @@
             transition: transform 0.3s;
         }
 
-        /* サイドバーが閉じている時 */
+        /* サイドバーが閉じている時のボタン */
         .sidebar.hidden .sidebar-toggle {
             position: fixed;
-            left: 10px;
+            left: 20px;
             top: 90px;
             right: auto;
-            background: rgba(10, 80, 70, 0.9);
+            background: rgba(10, 80, 70, 0.95);
             border-color: rgba(10, 80, 70, 1);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-        }
-
-        .sidebar.hidden .sidebar-toggle .toggle-arrow::before {
-            content: '▶';
-        }
-
-        .sidebar.hidden .sidebar-toggle .toggle-arrow {
-            display: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         }
 
         .sidebar-resizer {
