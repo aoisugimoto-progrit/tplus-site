@@ -91,6 +91,10 @@
             height: 70px;
         }
 
+        #home-header .header-container {
+            justify-content: space-between;
+        }
+
         .header-logo {
             display: flex;
             align-items: center;
