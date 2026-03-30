@@ -157,6 +157,7 @@
             background: transparent !important;
             backdrop-filter: none !important;
             box-shadow: none !important;
+            transition: opacity 0.3s ease;
         }
 
         .header-transparent .logo-text {

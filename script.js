@@ -56,11 +56,32 @@ if (backToTopButton) {
     });
 }
 
+// ホームページのヘッダースクロール時フェードアウト
+const homeHeader = document.getElementById('home-header');
+
 // ヘッダーのスクロール時透明度変更＆ページトップボタン表示制御
 window.addEventListener('scroll', () => {
     const header = document.querySelector('.site-header');
-    if (header) {
-        if (window.scrollY > 50) {
+    const scrollY = window.scrollY;
+
+    // ホームページのヘッダーをスクロール時に消す
+    if (homeHeader) {
+        if (scrollY > 100) {
+            const opacity = Math.max(0, 1 - (scrollY - 100) / 200);
+            homeHeader.style.opacity = opacity;
+            if (opacity === 0) {
+                homeHeader.style.pointerEvents = 'none';
+            } else {
+                homeHeader.style.pointerEvents = 'auto';
+            }
+        } else {
+            homeHeader.style.opacity = '1';
+            homeHeader.style.pointerEvents = 'auto';
+        }
+    }
+
+    if (header && !homeHeader) {
+        if (scrollY > 50) {
             header.style.boxShadow = '0 2px 15px rgba(45, 95, 76, 0.12)';
         } else {
             header.style.boxShadow = '0 2px 10px rgba(45, 95, 76, 0.08)';
@@ -69,7 +90,7 @@ window.addEventListener('scroll', () => {
 
     // ページトップボタンの表示制御
     if (backToTopButton) {
-        if (window.scrollY > 300) {
+        if (scrollY > 300) {
             backToTopButton.classList.add('visible');
         } else {
             backToTopButton.classList.remove('visible');
