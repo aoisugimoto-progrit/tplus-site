@@ -21,6 +21,39 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+// ページトランジション
+document.addEventListener('DOMContentLoaded', () => {
+    // ナビゲーションリンクにページトランジションを追加
+    const navLinks = document.querySelectorAll('.header-nav a:not([href^="#"])');
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+
+            // 現在のページと同じ場合は何もしない
+            if (href === window.location.pathname.split('/').pop()) {
+                e.preventDefault();
+                return;
+            }
+
+            // 外部リンクの場合は通常通り
+            if (href.startsWith('http')) {
+                return;
+            }
+
+            e.preventDefault();
+
+            // トランジションアニメーション開始
+            document.body.classList.add('page-transitioning');
+
+            // アニメーション後にページ遷移
+            setTimeout(() => {
+                window.location.href = href;
+            }, 500);
+        });
+    });
+});
+
 // スムーススクロール
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
