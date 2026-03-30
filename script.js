@@ -1,3 +1,26 @@
+// スクロールアニメーション（Intersection Observer）
+const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.1
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, observerOptions);
+
+// .scroll-fade クラスを持つすべての要素を監視
+document.addEventListener('DOMContentLoaded', () => {
+    const fadeElements = document.querySelectorAll('.scroll-fade');
+    fadeElements.forEach(element => {
+        observer.observe(element);
+    });
+});
+
 // スムーススクロール
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {

@@ -1119,6 +1119,30 @@
             box-shadow: 0 12px 35px rgba(10, 60, 55, 0.25);
         }
 
+        /* スクロールアニメーション */
+        .scroll-fade {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .scroll-fade.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .scroll-fade-delay-1 {
+            transition-delay: 0.1s;
+        }
+
+        .scroll-fade-delay-2 {
+            transition-delay: 0.2s;
+        }
+
+        .scroll-fade-delay-3 {
+            transition-delay: 0.3s;
+        }
+
         /* フェードインアニメーション */
         @keyframes fadeIn {
             from {
