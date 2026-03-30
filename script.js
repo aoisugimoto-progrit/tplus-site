@@ -115,34 +115,6 @@ window.addEventListener('scroll', () => {
             }
         });
     }
-
-    // サイドバーのスクロール連動
-    const sidebar = document.querySelector('.sidebar');
-    const pageHero = document.querySelector('.page-hero');
-    const sidebarToggle = document.getElementById('sidebar-toggle');
-
-    if (sidebar && pageHero && sidebar.classList.contains('active')) {
-        const heroBottom = pageHero.offsetTop + pageHero.offsetHeight;
-        const sidebarStart = Math.max(heroBottom, 370);
-
-        if (scrollY + 70 < sidebarStart) {
-            // ヒーロー部分が見えている間は初期位置
-            sidebar.style.position = 'absolute';
-            sidebar.style.top = sidebarStart + 'px';
-            sidebar.style.height = `calc(100vh - ${sidebarStart}px)`;
-            if (sidebarToggle) {
-                sidebarToggle.style.top = `calc(${sidebarStart}px + 20px)`;
-            }
-        } else {
-            // スクロールして本文まで来たら固定
-            sidebar.style.position = 'fixed';
-            sidebar.style.top = '70px';
-            sidebar.style.height = 'calc(100vh - 70px)';
-            if (sidebarToggle) {
-                sidebarToggle.style.top = '90px';
-            }
-        }
-    }
 });
 
 // サイドバー開閉機能
@@ -151,19 +123,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const sidebar = document.querySelector('.sidebar');
     const mainContent = document.querySelector('.main-content.with-sidebar');
     const toggleArrow = document.querySelector('.toggle-arrow');
-    const pageHero = document.querySelector('.page-hero');
-
-    // サイドバーの初期位置を設定
-    if (sidebar && pageHero && sidebar.classList.contains('active')) {
-        const heroBottom = pageHero.offsetTop + pageHero.offsetHeight;
-        const sidebarStart = Math.max(heroBottom, 370);
-        sidebar.style.position = 'absolute';
-        sidebar.style.top = sidebarStart + 'px';
-        sidebar.style.height = `calc(100vh - ${sidebarStart}px)`;
-        if (sidebarToggleBtn) {
-            sidebarToggleBtn.style.top = `calc(${sidebarStart}px + 20px)`;
-        }
-    }
 
     if (sidebarToggleBtn && sidebar && mainContent) {
         sidebarToggleBtn.addEventListener('click', () => {

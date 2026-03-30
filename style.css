@@ -186,11 +186,11 @@
 
         /* サイドバー */
         .sidebar {
-            position: absolute;
+            position: fixed;
             left: 0;
-            top: 370px;
+            top: calc(max(33vh, 300px) + 70px);
             width: 260px;
-            height: calc(100vh - 370px);
+            height: calc(100vh - max(33vh, 300px) - 70px);
             background: linear-gradient(180deg, rgba(15, 35, 45, 0.95) 0%, rgba(10, 25, 35, 0.98) 100%);
             backdrop-filter: blur(10px);
             color: white;
@@ -199,7 +199,7 @@
             z-index: 50;
             box-shadow: 4px 0 20px rgba(0, 0, 0, 0.3);
             display: none;
-            transition: transform 0.3s ease, top 0.3s ease, height 0.3s ease;
+            transition: transform 0.3s ease;
         }
 
         .sidebar.active {
@@ -213,7 +213,7 @@
 
         .sidebar-toggle {
             position: fixed;
-            top: 390px;
+            top: calc(max(33vh, 300px) + 70px + 20px);
             left: 220px;
             width: 36px;
             height: 36px;
@@ -226,7 +226,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: top 0.3s ease, left 0.3s ease, background 0.3s ease, transform 0.3s ease;
+            transition: left 0.3s ease, background 0.3s ease, transform 0.3s ease;
             z-index: 1001;
         }
 
