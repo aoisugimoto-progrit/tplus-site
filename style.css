@@ -186,11 +186,11 @@
 
         /* サイドバー */
         .sidebar {
-            position: fixed;
+            position: absolute;
             left: 0;
-            top: calc(max(33vh, 300px) + 70px);
+            top: calc(max(33vh, 300px));
             width: 260px;
-            height: calc(100vh - max(33vh, 300px) - 70px);
+            min-height: calc(100vh - max(33vh, 300px));
             background: linear-gradient(180deg, rgba(15, 35, 45, 0.95) 0%, rgba(10, 25, 35, 0.98) 100%);
             backdrop-filter: blur(10px);
             color: white;
@@ -212,8 +212,8 @@
         }
 
         .sidebar-toggle {
-            position: fixed;
-            top: calc(max(33vh, 300px) + 70px + 20px);
+            position: absolute;
+            top: calc(max(33vh, 300px) + 20px);
             left: 220px;
             width: 36px;
             height: 36px;
