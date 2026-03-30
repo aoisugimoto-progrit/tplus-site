@@ -98,8 +98,19 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// サイドバートグル機能
+// サイドバー開閉機能
 document.addEventListener('DOMContentLoaded', () => {
+    const sidebarToggleBtn = document.getElementById('sidebar-toggle');
+    const sidebar = document.querySelector('.sidebar');
+    const mainContent = document.querySelector('.main-content.with-sidebar');
+
+    if (sidebarToggleBtn && sidebar && mainContent) {
+        sidebarToggleBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('hidden');
+            mainContent.classList.toggle('sidebar-closed');
+        });
+    }
+
     const navToggles = document.querySelectorAll('.nav-toggle');
 
     navToggles.forEach(toggle => {
