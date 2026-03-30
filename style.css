@@ -408,6 +408,16 @@
             overflow: hidden;
         }
 
+        .with-sidebar .page-hero {
+            margin-left: -260px;
+            width: calc(100% + 260px);
+        }
+
+        .with-sidebar.sidebar-closed .page-hero {
+            margin-left: 0;
+            width: 100%;
+        }
+
         .page-hero::before {
             content: '';
             position: absolute;
