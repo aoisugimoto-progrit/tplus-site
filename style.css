@@ -443,7 +443,7 @@
 
         /* メッセージセクション */
         .message-section {
-            padding: 100px 80px 100px;
+            padding: 100px 80px 120px;
             background: linear-gradient(135deg, rgba(10, 15, 20, 1) 0%, rgba(5, 10, 15, 1) 100%);
             position: relative;
             overflow: hidden;
@@ -517,6 +517,30 @@
 
             .message-text {
                 gap: 15px;
+            }
+        }
+
+        /* ナビゲーション（Exploreセクション） */
+        .nav-explore {
+            margin-top: 80px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .nav-explore h2 {
+            text-align: center;
+            color: white;
+            font-size: clamp(36px, 6vw, 56px);
+            font-weight: 200;
+            margin-bottom: 20px;
+            letter-spacing: 0.05em;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+
+        @media (max-width: 768px) {
+            .nav-explore {
+                margin-top: 50px;
             }
         }
 
