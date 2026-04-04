@@ -23,7 +23,7 @@
     <main class="main-content with-sidebar">
         <!-- サイドバートグルボタン -->
         <button class="sidebar-toggle" id="sidebar-toggle">
-            <span class="toggle-arrow">◀</span>
+            <span class="toggle-arrow">&lt;</span>
         </button>
 
         <!-- サイドバー -->
@@ -43,7 +43,6 @@
         <section class="page-hero" id="hero">
             <div class="page-hero-content">
                 <h1>Founder</h1>
-                <p>創設者と理念</p>
             </div>
         </section>
 
@@ -51,24 +50,27 @@
             <!-- 瀧本先生について -->
             <section id="takimoto" class="profile-section">
                 <div class="profile-container">
-                    <div class="profile-image">
-                        <img src="takimoto.png" alt="瀧本哲史先生">
+                    <div class="profile-left">
+                        <div class="profile-image">
+                            <img src="takimoto.png" alt="瀧本哲史先生">
+                        </div>
+                        <div class="profile-books">
+                            <div class="book-grid">
+                                <img src="images/books/takimoto_weapon.png" alt="僕は君たちに武器を配りたい" class="book-cover">
+                                <img src="images/books/takimoto_friends.png" alt="君に友達はいらない" class="book-cover">
+                                <img src="images/books/takimoto_2020.png" alt="2020年6月30日にまたここで会おう" class="book-cover">
+                            </div>
+                        </div>
                     </div>
                     <div class="profile-content">
                         <h2 class="profile-name">瀧本 哲史</h2>
                         <p class="profile-name-en">Tetsufumi Takimoto</p>
                         <p class="profile-role">創設者</p>
                         <div class="profile-text">
-                            <p>東京大学法学部卒業後、<br>マッキンゼー・アンド・カンパニーでコンサルタントとして活躍。</p>
-                            <p>その後、独立してエンジェル投資家として数々のベンチャー企業を支援。<br>2007年より京都大学客員准教授として教鞭をとり、瀧本ゼミを主宰。</p>
-                            <p>「自分の頭で考え、決断し、行動する」ことの重要性を説き続け、<br>次世代のリーダー育成に情熱を注いだ。</p>
-                            <p>著書に『武器としての決断思考』『僕は君たちに武器を配りたい』『君に友達はいらない』など。<br>2019年8月10日逝去。</p>
-                        </div>
-
-                        <div class="book-grid" style="margin-top: 30px;">
-                            <img src="images/books/takimoto_weapon.png" alt="僕は君たちに武器を配りたい" class="book-cover">
-                            <img src="images/books/takimoto_friends.png" alt="君に友達はいらない" class="book-cover">
-                            <img src="images/books/takimoto_2020.png" alt="2020年6月30日にまたここで会おう" class="book-cover">
+                            <p>東京大学法学部卒業後、マッキンゼー・アンド・カンパニーでコンサルタントとして活躍。</p>
+                            <p>その後、独立してエンジェル投資家として数々のベンチャー企業を支援。2007年より京都大学客員准教授として教鞭をとり、瀧本ゼミを主宰。</p>
+                            <p>「自分の頭で考え、決断し、行動する」ことの重要性を説き続け、次世代のリーダー育成に情熱を注いだ。</p>
+                            <p>著書に『武器としての決断思考』『僕は君たちに武器を配りたい』『君に友達はいらない』など。2019年8月10日逝去。</p>
                         </div>
                     </div>
                 </div>
@@ -88,7 +90,7 @@
                 <h3>Step1：企業分析を通じて「武器」を獲得する</h3>
                 <p>T＋では、企業分析を通じて<br>社会で戦うための「武器」を身につけます。</p>
 
-                <div class="card-grid">
+                <div class="card-grid card-grid-vertical">
                     <div class="card">
                         <h4>分解脳</h4>
                         <p>複雑な問題を構造的に理解し、本質を見抜く力</p>
@@ -113,7 +115,7 @@
                 <h3>Step2：現役生、卒業生問わずゼミ生同士がつながる</h3>
                 <p>T＋では、普段から<br>横、縦、斜めのつながりが生まれるようにしています。</p>
 
-                <div class="card-grid">
+                <div class="card-grid card-grid-vertical">
                     <div class="card">
                         <h4>①各々は、専門業界をもつ</h4>
                         <p>Tゼミと専門業界のハブとなる</p>
@@ -309,7 +311,7 @@
 
     <!-- ページトップボタン -->
     <button id="back-to-top" class="back-to-top">
-        <span>↑</span>
+        <span>^</span>
     </button>
 
     <script src="script.js"></script>

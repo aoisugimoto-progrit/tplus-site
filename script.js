@@ -194,7 +194,7 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.classList.toggle('sidebar-closed', isHidden);
 
             if (toggleArrow) {
-                toggleArrow.textContent = isHidden ? '▶' : '◀';
+                toggleArrow.textContent = isHidden ? '>' : '<';
             }
         });
     }
@@ -258,11 +258,10 @@ document.addEventListener('DOMContentLoaded', () => {
         
         sections.forEach((section, index) => {
             section.classList.add('accordion-section');
-            
-            if (index === 0) {
-                section.classList.add('active');
-            }
-            
+
+            // デフォルトで全部開く
+            section.classList.add('active');
+
             const h2 = section.querySelector('h2');
             if (!h2) return;
 
@@ -274,19 +273,19 @@ document.addEventListener('DOMContentLoaded', () => {
             const toggleBtn = document.createElement('div');
             toggleBtn.className = 'accordion-toggle-btn';
             toggleBtn.innerHTML = `
-                <span class="accordion-toggle-icon">▼</span>
-                <span class="accordion-toggle-text">開く</span>
+                <span class="accordion-toggle-icon">v</span>
+                <span class="accordion-toggle-text">閉じる</span>
             `;
             header.appendChild(toggleBtn);
-            
+
             const content = document.createElement('div');
             content.className = 'accordion-content';
-            
+
             while (header.nextSibling) {
                 content.appendChild(header.nextSibling);
             }
             section.appendChild(content);
-            
+
             const updateToggleButton = (section) => {
                 const toggleText = section.querySelector('.accordion-toggle-text');
                 if (toggleText) {
@@ -294,31 +293,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             };
 
-            updateToggleButton(section);
-
             header.addEventListener('click', () => {
-                const isActive = section.classList.contains('active');
-                const headerTop = header.getBoundingClientRect().top + window.scrollY;
-                const scrollOffset = window.scrollY;
-
-                sections.forEach(s => {
-                    s.classList.remove('active');
-                    updateToggleButton(s);
-                });
-
-                if (!isActive) {
-                    section.classList.add('active');
-                    updateToggleButton(section);
-
-                    setTimeout(() => {
-                        const newHeaderTop = header.getBoundingClientRect().top + window.scrollY;
-                        const offset = newHeaderTop - headerTop;
-                        window.scrollTo({
-                            top: scrollOffset + offset - 100,
-                            behavior: 'smooth'
-                        });
-                    }, 50);
-                }
+                // 個別にトグル（他のセクションは触らない）
+                section.classList.toggle('active');
+                updateToggleButton(section);
             });
         });
     }
@@ -341,7 +319,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 const toggleBtn = document.createElement('button');
                 toggleBtn.className = 'example-toggle-btn';
-                toggleBtn.innerHTML = '<span class="arrow">▼</span> 事例を見る';
+                toggleBtn.innerHTML = '<span class="arrow">v</span> 事例を見る';
                 container.appendChild(toggleBtn);
                 
                 const content = document.createElement('div');
@@ -352,9 +330,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 toggleBtn.addEventListener('click', (e) => {
                     e.stopPropagation();
                     container.classList.toggle('expanded');
-                    toggleBtn.innerHTML = container.classList.contains('expanded') 
-                        ? '<span class="arrow">▼</span> 事例を隠す'
-                        : '<span class="arrow">▼</span> 事例を見る';
+                    toggleBtn.innerHTML = container.classList.contains('expanded')
+                        ? '<span class="arrow">v</span> 事例を隠す'
+                        : '<span class="arrow">v</span> 事例を見る';
                 });
             }
         });
