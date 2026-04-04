@@ -2800,10 +2800,17 @@ p {
 .book-cover {
     position: relative;
     cursor: pointer;
+    display: inline-block;
 }
 
-.book-cover::before {
-    content: attr(data-priority);
+.book-cover img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.book-cover[data-priority="3"]::before {
+    content: "★★★";
     position: absolute;
     bottom: calc(100% + 10px);
     left: 50%;
@@ -2819,22 +2826,50 @@ p {
     transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
     pointer-events: none;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-    z-index: 100;
-}
-
-.book-cover[data-priority="3"]::before {
-    content: "★★★";
+    z-index: 10000;
 }
 
 .book-cover[data-priority="2"]::before {
     content: "★★☆";
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%) scale(0);
+    padding: 8px 12px;
+    background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+    color: #FFD700;
+    font-size: 18px;
+    font-weight: 700;
+    border-radius: 8px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    pointer-events: none;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    z-index: 10000;
 }
 
 .book-cover[data-priority="1"]::before {
     content: "★☆☆";
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%) scale(0);
+    padding: 8px 12px;
+    background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+    color: #FFD700;
+    font-size: 18px;
+    font-weight: 700;
+    border-radius: 8px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    pointer-events: none;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    z-index: 10000;
 }
 
-.book-cover::after {
+.book-cover[data-priority]::after {
     content: '';
     position: absolute;
     bottom: calc(100% + 2px);
@@ -2848,11 +2883,11 @@ p {
     opacity: 0;
     transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
     pointer-events: none;
-    z-index: 100;
+    z-index: 10000;
 }
 
-.book-cover:hover::before,
-.book-cover:hover::after {
+.book-cover[data-priority]:hover::before,
+.book-cover[data-priority]:hover::after {
     opacity: 1;
     transform: translateX(-50%) scale(1);
 }
@@ -2867,5 +2902,95 @@ p {
 .card-grid-vertical .card {
     padding: 15px 20px;
     margin: 0;
+}
+
+/* 13マトリクス */
+.insight-matrix {
+    margin: 40px 0;
+    overflow: visible;
+}
+
+.matrix-header,
+.matrix-row {
+    display: grid;
+    grid-template-columns: 120px repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(200, 200, 200, 0.3);
+    overflow: visible;
+}
+
+.matrix-cell {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 15px;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.matrix-label {
+    background: transparent;
+}
+
+.matrix-col-header,
+.matrix-row-header {
+    background: rgba(74, 222, 128, 0.1);
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.matrix-empty {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.matrix-item {
+    background: rgba(255, 255, 255, 0.05);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    flex-direction: column;
+    gap: 8px;
+    border: 2px solid transparent;
+}
+
+.matrix-item:hover {
+    background: rgba(74, 222, 128, 0.15);
+    border-color: rgba(74, 222, 128, 0.5);
+    transform: scale(1.05);
+}
+
+.item-number {
+    font-weight: 700;
+    font-size: 18px;
+    color: #4ADE80;
+}
+
+.item-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+
+@media (max-width: 768px) {
+    .matrix-header,
+    .matrix-row {
+        grid-template-columns: 100px repeat(3, 1fr);
+    }
+
+    .matrix-cell {
+        padding: 10px;
+        min-height: 50px;
+        font-size: 12px;
+    }
+
+    .item-number {
+        font-size: 14px;
+    }
+
+    .item-title {
+        font-size: 11px;
+    }
 }
 
