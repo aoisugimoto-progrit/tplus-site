@@ -7,10 +7,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const tooltip = document.getElementById('glossary-tooltip');
     const tooltipContent = tooltip.querySelector('.glossary-content');
     const glossaryTerms = document.querySelectorAll('.glossary-term');
+    const matrixItems = document.querySelectorAll('.matrix-item');
 
     let currentTerm = null;
     let hideTimeout = null;
 
+    // 用語集のツールチップ
     glossaryTerms.forEach(term => {
         term.addEventListener('mouseenter', function(e) {
             clearTimeout(hideTimeout);
@@ -47,6 +49,54 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         term.addEventListener('mouseleave', function() {
+            hideTimeout = setTimeout(() => {
+                tooltip.classList.remove('visible');
+                currentTerm = null;
+            }, 200);
+        });
+    });
+
+    // マトリックスのツールチップ
+    matrixItems.forEach(item => {
+        item.addEventListener('mouseenter', function(e) {
+            clearTimeout(hideTimeout);
+
+            const content = this.getAttribute('data-content');
+            if (content) {
+                tooltipContent.textContent = content;
+
+                // 位置計算
+                const rect = this.getBoundingClientRect();
+                const tooltipHeight = tooltip.offsetHeight;
+
+                // マトリックスアイテムの上に表示
+                let top = rect.top + window.scrollY - tooltipHeight - 12;
+                let left = rect.left + window.scrollX;
+
+                // 画面上端に近すぎる場合は下に表示
+                if (top < window.scrollY + 10) {
+                    top = rect.bottom + window.scrollY + 12;
+                }
+
+                // 画面右端を超える場合は調整
+                if (left + tooltip.offsetWidth > window.innerWidth) {
+                    left = window.innerWidth - tooltip.offsetWidth - 20;
+                }
+
+                // 画面左端を超える場合は調整
+                if (left < 20) {
+                    left = 20;
+                }
+
+                tooltip.style.top = top + 'px';
+                tooltip.style.left = left + 'px';
+                tooltip.classList.add('visible');
+
+                currentTerm = this;
+            }
+        });
+
+        item.addEventListener('mouseleave', function() {
             hideTimeout = setTimeout(() => {
                 tooltip.classList.remove('visible');
                 currentTerm = null;
