@@ -299,6 +299,22 @@ document.addEventListener('DOMContentLoaded', () => {
                 updateToggleButton(section);
             });
         });
+
+        // #quizと#moviesのアコーディオン（既にHTMLで構造作成済み）
+        const manualSections = document.querySelectorAll('#quiz .accordion-section, #movies .accordion-section');
+        manualSections.forEach((section) => {
+            const header = section.querySelector('.accordion-header');
+            const toggleLabel = section.querySelector('.toggle-label');
+
+            if (header) {
+                header.addEventListener('click', () => {
+                    section.classList.toggle('active');
+                    if (toggleLabel) {
+                        toggleLabel.textContent = section.classList.contains('active') ? '閉じる' : '開く';
+                    }
+                });
+            }
+        });
     }
 });
 
