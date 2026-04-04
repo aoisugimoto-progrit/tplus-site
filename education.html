@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>投資の原理原則 | 瀧本ゼミ企業分析パート T＋</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="enhanced-features.css">
 </head>
 <body>
     <!-- ヘッダー -->
@@ -73,11 +74,24 @@
             <section id="basics">
                 <h2>株ってなに？</h2>
 
+                <!-- 📌 サマリーカード -->
+                <div class="summary-card">
+                    <div class="summary-icon">📊</div>
+                    <div class="summary-content">
+                        <h4>このセクションで学ぶこと</h4>
+                        <ul>
+                            <li>株式＝会社の所有権。市場予想と現実のギャップで利益を得る</li>
+                            <li>利益の得方は2つ：値上がり益（キャピタルゲイン）と配当金（インカムゲイン）</li>
+                            <li>T＋では企業の本質的価値を見極めるファンダメンタルズ分析を重視</li>
+                        </ul>
+                    </div>
+                </div>
+
                 <p>投資の世界に足を踏み入れる前に、まずは基本的な概念を理解しましょう。</p>
 
                 <h3>株＝会社の所有権</h3>
                 <div class="card">
-                    <p>株式とは、会社の所有権を細かく分割したものです。株を買うということは、その会社の一部を所有することを意味します。会社が成長すれば株価は上がり、業績が悪化すれば株価は下がります。</p>
+                    <p><span class="glossary-term" data-definition="会社の所有権を小口化したもの。1株を持つことは、その会社の一部を所有することを意味します。">株式</span>とは、会社の所有権を細かく分割したものです。株を買うということは、その会社の一部を所有することを意味します。会社が成長すれば<span class="glossary-term" data-definition="株式市場で取引される株式1株あたりの価格。需要と供給で決まります。">株価</span>は上がり、業績が悪化すれば株価は下がります。</p>
                 </div>
 
                 <h3>市場との差が大事</h3>
@@ -87,12 +101,12 @@
 
                 <h3>株の儲け方</h3>
                 <div class="card">
-                    <p>株式投資で利益を得る方法は主に2つあります。①キャピタルゲイン（株価の値上がり益）: 株を安く買って高く売ることで得られる利益。②インカムゲイン（配当金）: 企業が利益の一部を株主に分配する配当金による利益。</p>
+                    <p>株式投資で利益を得る方法は主に2つあります。①<span class="glossary-term" data-definition="株式を安く買って高く売ることで得られる売買差益。株価の値上がりによる利益です。">キャピタルゲイン</span>（株価の値上がり益）: 株を安く買って高く売ることで得られる利益。②<span class="glossary-term" data-definition="企業が利益の一部を株主に分配するお金。年1〜2回支払われることが多いです。">インカムゲイン</span>（配当金）: 企業が利益の一部を株主に分配する配当金による利益。</p>
                 </div>
 
                 <h3>株価予想の二つの手段</h3>
                 <div class="card">
-                    <p>株価を予想する手法は大きく2つに分かれます。①ファンダメンタルズ分析: 企業の財務状況、ビジネスモデル、市場環境などを分析して本質的な価値を見極める手法。T＋ではこちらに集中します。②テクニカル分析: 過去の株価や出来高の動きから将来の株価を予測する手法。</p>
+                    <p>株価を予想する手法は大きく2つに分かれます。①<span class="glossary-term" data-definition="企業の財務状況、ビジネスモデル、業界環境などを分析して本質的な企業価値を見極める手法。長期投資向き。">ファンダメンタルズ分析</span>: 企業の財務状況、ビジネスモデル、市場環境などを分析して本質的な価値を見極める手法。T＋ではこちらに集中します。②<span class="glossary-term" data-definition="過去の株価チャートや出来高のパターンから将来の株価を予測する手法。短期トレード向き。">テクニカル分析</span>: 過去の株価や出来高の動きから将来の株価を予測する手法。</p>
                 </div>
 
                 <!-- 参考資料 -->
@@ -109,35 +123,61 @@
             <section id="flow">
                 <h2>企業分析の流れ</h2>
 
+                <!-- 📌 サマリーカード -->
+                <div class="summary-card">
+                    <div class="summary-icon">🔍</div>
+                    <div class="summary-content">
+                        <h4>このセクションで学ぶこと</h4>
+                        <ul>
+                            <li>4000社から投資対象を体系的に絞り込む4ステップのプロセス</li>
+                            <li>外部環境→スクリーニング→内部環境→イベントドリブンの順で深掘り</li>
+                            <li>各ステップで企業の成長可能性と投資妙味を多角的に評価</li>
+                        </ul>
+                    </div>
+                </div>
+
                 <h3>4000社からの発掘</h3>
                 <div class="card">
-                    <p>日本には約4000社の上場企業があります。その中から投資価値のある企業を見つけ出すには、体系的な分析プロセスが必要です。T＋では、以下の4つのステップで企業分析を進めます。</p>
+                    <p>日本には約4000社の<span class="glossary-term" data-definition="証券取引所に株式を公開している企業。東証プライム、スタンダード、グロースなど複数の市場区分があります。">上場企業</span>があります。その中から投資価値のある企業を見つけ出すには、体系的な分析プロセスが必要です。T＋では、以下の4つのステップで企業分析を進めます。</p>
                 </div>
 
                 <h3>STEP1:外部環境の分析</h3>
                 <div class="card">
-                    <p>市場全体の動きや業界構造を理解し、企業を取り巻く外部環境を分析します。市場規模、成長率、5フォース（競争環境）などを調査し、企業が成長できる土壌があるかを見極めます。</p>
+                    <p>市場全体の動きや業界構造を理解し、企業を取り巻く外部環境を分析します。市場規模、成長率、<span class="glossary-term" data-definition="業界の競争環境を5つの要素で分析するフレームワーク。新規参入の脅威、代替品の脅威、買い手の交渉力、売り手の交渉力、既存競合の強さを評価します。">5フォース</span>（競争環境）などを調査し、企業が成長できる土壌があるかを見極めます。</p>
                 </div>
 
                 <h3>STEP2:スクリーニング</h3>
                 <div class="card">
-                    <p>数千社の中から投資対象を絞り込むためのスクリーニング手法を使います。「隠れたインサイト」を見つけ、いい銘柄の見逃しを防ぎます。13のパターンを使って効率的に銘柄を発掘します。</p>
+                    <p>数千社の中から投資対象を絞り込むための<span class="glossary-term" data-definition="大量のデータから特定の条件に合う対象を抽出すること。投資では財務指標や成長率などの条件で銘柄を絞り込みます。">スクリーニング</span>手法を使います。「隠れたインサイト」を見つけ、いい銘柄の見逃しを防ぎます。13のパターンを使って効率的に銘柄を発掘します。</p>
                 </div>
 
                 <h3>STEP3:内部環境の分析</h3>
                 <div class="card">
-                    <p>企業のビジネスモデル、競争優位性、収益構造を深く分析します。限界利益率や経営資源を調査し、持続的な成長が可能かを見極めます。この段階で企業の本質的な強さを理解します。</p>
+                    <p>企業の<span class="glossary-term" data-definition="企業がどのように価値を生み出し、顧客に提供し、収益を得るかの仕組み。誰に・何を・どうやって売るかの全体像です。">ビジネスモデル</span>、<span class="glossary-term" data-definition="他社に真似されにくい独自の強み。技術力、ブランド力、ネットワーク効果、コスト優位性などがあります。">競争優位性</span>、収益構造を深く分析します。<span class="glossary-term" data-definition="売上から変動費を引いた利益。固定費を賄い、利益を生む源泉です。限界利益率が高いほど収益性が高い。">限界利益率</span>や経営資源を調査し、持続的な成長が可能かを見極めます。この段階で企業の本質的な強さを理解します。</p>
                 </div>
 
                 <h3>STEP4:イベントドリブン</h3>
                 <div class="card">
-                    <p>企業の特定のイベント（M&A、業績発表、新製品など）を契機とした投資機会を捉えます。短期的な株価変動の可能性を分析し、タイミングを見極めます。</p>
+                    <p>企業の特定のイベント（<span class="glossary-term" data-definition="企業の合併（Merger）と買収（Acquisition）。企業が成長戦略として他社を統合・買収すること。">M&A</span>、業績発表、新製品など）を契機とした投資機会を捉えます。短期的な株価変動の可能性を分析し、タイミングを見極めます。</p>
                 </div>
             </section>
 
             <!-- 企業分析詳細編①外部環境分析編 -->
             <section id="external">
                 <h2>企業分析詳細編①外部環境分析編</h2>
+
+                <!-- 📌 サマリーカード -->
+                <div class="summary-card">
+                    <div class="summary-icon">🌍</div>
+                    <div class="summary-content">
+                        <h4>このセクションで学ぶこと</h4>
+                        <ul>
+                            <li>市場規模・成長率から企業が成長できる土壌があるかを見極める</li>
+                            <li>5フォース分析で業界の競争環境と収益性を評価する</li>
+                            <li>マクロ経済指標と業界トレンドを読み解き投資判断に活かす</li>
+                        </ul>
+                    </div>
+                </div>
 
                 <p>市場全体の動きや業界構造を理解することで、企業を取り巻く外部環境を分析します。</p>
 
@@ -170,6 +210,19 @@
             <section id="screening">
                 <h2>企業分析詳細編②スクリーニング編</h2>
 
+                <!-- 📌 サマリーカード -->
+                <div class="summary-card">
+                    <div class="summary-icon">💡</div>
+                    <div class="summary-content">
+                        <h4>このセクションで学ぶこと</h4>
+                        <ul>
+                            <li>「隠れたインサイト」＝まだ市場が気づいていない企業の本当の強み</li>
+                            <li>13のパターンで体系的に銘柄発掘。製品力以外の勝ち方を見抜く</li>
+                            <li>市場拡大・シェア拡大・利益率向上の3軸で成長ドライバーを特定</li>
+                        </ul>
+                    </div>
+                </div>
+
                 <p>数千社の中から投資対象を絞り込むためのスクリーニング手法を学びます。</p>
 
                 <h3>「隠れたインサイト」を知り、いい銘柄の見逃しを防ぐ</h3>
@@ -188,6 +241,125 @@
                 <h3>13の「隠れたインサイト」マトリックス</h3>
 
                 <p>利益成長（市場拡大・シェア拡大・利益率向上）と、分析の切り口（外部環境・ビジネスモデル・経営資源）を組み合わせた13のパターンを理解することで、銘柄の見逃しを防ぎます。</p>
+
+                <!-- 📌 マトリックス図解 -->
+                <div class="insight-matrix">
+                    <div class="matrix-header">
+                        <div class="matrix-cell matrix-label"></div>
+                        <div class="matrix-cell matrix-col-header">外部環境</div>
+                        <div class="matrix-cell matrix-col-header">ビジネスモデル</div>
+                        <div class="matrix-cell matrix-col-header">経営資源</div>
+                    </div>
+
+                    <div class="matrix-row">
+                        <div class="matrix-cell matrix-row-header">市場拡大</div>
+                        <div class="matrix-cell matrix-item" data-number="1">
+                            <span class="item-number">①</span>
+                            <span class="item-title">市場の構造的な伸び</span>
+                        </div>
+                        <div class="matrix-cell matrix-item" data-number="2">
+                            <span class="item-number">②</span>
+                            <span class="item-title">成長企業のコバンザメ</span>
+                        </div>
+                        <div class="matrix-cell matrix-item" data-number="3">
+                            <span class="item-number">③</span>
+                            <span class="item-title">国策との強いリンク</span>
+                        </div>
+                    </div>
+
+                    <div class="matrix-row">
+                        <div class="matrix-cell matrix-row-header">シェア拡大</div>
+                        <div class="matrix-cell matrix-item" data-number="4">
+                            <span class="item-number">④</span>
+                            <span class="item-title">デカいダメ競合</span>
+                        </div>
+                        <div class="matrix-cell matrix-item" data-number="5">
+                            <span class="item-number">⑤</span>
+                            <span class="item-title">武器商人</span>
+                        </div>
+                        <div class="matrix-cell matrix-empty"></div>
+                    </div>
+
+                    <div class="matrix-row">
+                        <div class="matrix-cell matrix-row-header">利益率向上</div>
+                        <div class="matrix-cell matrix-empty"></div>
+                        <div class="matrix-cell matrix-item" data-number="6">
+                            <span class="item-number">⑥</span>
+                            <span class="item-title">安定的な収益構造</span>
+                        </div>
+                        <div class="matrix-cell matrix-empty"></div>
+                    </div>
+
+                    <div class="matrix-row">
+                        <div class="matrix-cell matrix-row-header"></div>
+                        <div class="matrix-cell matrix-empty"></div>
+                        <div class="matrix-cell matrix-item" data-number="7">
+                            <span class="item-number">⑦</span>
+                            <span class="item-title">構造的な参入障壁</span>
+                        </div>
+                        <div class="matrix-cell matrix-empty"></div>
+                    </div>
+
+                    <div class="matrix-row">
+                        <div class="matrix-cell matrix-row-header"></div>
+                        <div class="matrix-cell matrix-empty"></div>
+                        <div class="matrix-cell matrix-item" data-number="8">
+                            <span class="item-number">⑧</span>
+                            <span class="item-title">バリューチェーン切り上げ</span>
+                        </div>
+                        <div class="matrix-cell matrix-empty"></div>
+                    </div>
+
+                    <div class="matrix-row">
+                        <div class="matrix-cell matrix-row-header"></div>
+                        <div class="matrix-cell matrix-empty"></div>
+                        <div class="matrix-cell matrix-item" data-number="9">
+                            <span class="item-number">⑨</span>
+                            <span class="item-title">内製化でコスト削減</span>
+                        </div>
+                        <div class="matrix-cell matrix-empty"></div>
+                    </div>
+
+                    <div class="matrix-row">
+                        <div class="matrix-cell matrix-row-header"></div>
+                        <div class="matrix-cell matrix-empty"></div>
+                        <div class="matrix-cell matrix-item" data-number="10">
+                            <span class="item-number">⑩</span>
+                            <span class="item-title">構造的な収益率向上</span>
+                        </div>
+                        <div class="matrix-cell matrix-empty"></div>
+                    </div>
+
+                    <div class="matrix-row">
+                        <div class="matrix-cell matrix-row-header">その他</div>
+                        <div class="matrix-cell matrix-empty"></div>
+                        <div class="matrix-cell matrix-empty"></div>
+                        <div class="matrix-cell matrix-item" data-number="11">
+                            <span class="item-number">⑪</span>
+                            <span class="item-title">破壊的イノベーション</span>
+                        </div>
+                    </div>
+
+                    <div class="matrix-row">
+                        <div class="matrix-cell matrix-row-header"></div>
+                        <div class="matrix-cell matrix-empty"></div>
+                        <div class="matrix-cell matrix-empty"></div>
+                        <div class="matrix-cell matrix-item" data-number="12">
+                            <span class="item-number">⑫</span>
+                            <span class="item-title">有能な経営者</span>
+                        </div>
+                    </div>
+
+                    <div class="matrix-row">
+                        <div class="matrix-cell matrix-row-header"></div>
+                        <div class="matrix-cell matrix-empty"></div>
+                        <div class="matrix-cell matrix-empty"></div>
+                        <div class="matrix-cell matrix-item" data-number="13">
+                            <span class="item-number">⑬</span>
+                            <span class="item-title">属人的・地縁的つながり</span>
+                        </div>
+                    </div>
+                </div>
 
                 <h4>市場拡大 × 外部環境</h4>
                 <div class="card-grid">
@@ -289,6 +461,19 @@
             <section id="internal">
                 <h2>企業分析詳細編③内部環境分析編</h2>
 
+                <!-- 📌 サマリーカード -->
+                <div class="summary-card">
+                    <div class="summary-icon">🏢</div>
+                    <div class="summary-content">
+                        <h4>このセクションで学ぶこと</h4>
+                        <ul>
+                            <li>ビジネスモデルを分解し、収益構造と限界利益率を理解する</li>
+                            <li>競争優位性の源泉を特定し、持続可能性を評価する</li>
+                            <li>経営資源とケイパビリティから企業の本質的な強さを見抜く</li>
+                        </ul>
+                    </div>
+                </div>
+
                 <p>企業のビジネスモデル、競争優位性、収益構造を深く分析します。</p>
 
                 <div class="placeholder">
@@ -319,6 +504,19 @@
             <!-- 企業分析詳細編④イベントドリブン編 -->
             <section id="event-driven">
                 <h2>企業分析詳細編④イベントドリブン編</h2>
+
+                <!-- 📌 サマリーカード -->
+                <div class="summary-card">
+                    <div class="summary-icon">⚡</div>
+                    <div class="summary-content">
+                        <h4>このセクションで学ぶこと</h4>
+                        <ul>
+                            <li>M&A・決算発表など特定イベントが株価に与える影響を分析</li>
+                            <li>イベント前後の市場の反応パターンと投資機会を理解する</li>
+                            <li>タイミングを見極めて短期的な株価変動を捉える手法</li>
+                        </ul>
+                    </div>
+                </div>
 
                 <p>企業の特定のイベント（M&A、業績発表など）を契機とした投資機会を捉える手法です。</p>
 
@@ -375,6 +573,12 @@
         <span>↑</span>
     </button>
 
+    <!-- 用語集ツールチップ -->
+    <div id="glossary-tooltip" class="glossary-tooltip">
+        <div class="glossary-content"></div>
+    </div>
+
     <script src="script.js"></script>
+    <script src="enhanced-features.js"></script>
 </body>
 </html>

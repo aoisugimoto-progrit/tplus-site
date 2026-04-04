@@ -1,0 +1,287 @@
+/* ========================================
+   拡張機能スタイル
+   ======================================== */
+
+/* ========== サマリーカード ========== */
+.summary-card {
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    border-left: 5px solid #0ea5e9;
+    border-radius: 12px;
+    padding: 24px 28px;
+    margin: 24px 0 32px 0;
+    box-shadow: 0 4px 12px rgba(14, 165, 233, 0.1);
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.summary-icon {
+    font-size: 32px;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+.summary-content h4 {
+    color: #0c4a6e;
+    margin-bottom: 12px;
+    font-size: 18px;
+}
+
+.summary-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.summary-content ul li {
+    padding-left: 24px;
+    position: relative;
+    margin-bottom: 8px;
+    color: #0369a1;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.summary-content ul li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #0ea5e9;
+    font-weight: bold;
+}
+
+/* ========== 用語集ツールチップ ========== */
+.glossary-term {
+    color: #0ea5e9;
+    border-bottom: 1px dashed #0ea5e9;
+    cursor: help;
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+.glossary-term:hover {
+    color: #0284c7;
+    border-bottom-color: #0284c7;
+}
+
+.glossary-tooltip {
+    position: fixed;
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    color: #f1f5f9;
+    padding: 16px 20px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.1);
+    max-width: 320px;
+    z-index: 10000;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.glossary-tooltip.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.glossary-tooltip::before {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 20px;
+    width: 16px;
+    height: 16px;
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    transform: rotate(45deg);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glossary-content {
+    position: relative;
+    z-index: 1;
+}
+
+/* ========== マトリックス図解 ========== */
+.insight-matrix {
+    margin: 32px 0;
+    overflow-x: auto;
+    background: linear-gradient(135deg, #fefce8 0%, #fef9c3 100%);
+    padding: 32px;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(234, 179, 8, 0.15);
+}
+
+.matrix-header,
+.matrix-row {
+    display: grid;
+    grid-template-columns: 140px repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.matrix-cell {
+    padding: 16px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 14px;
+}
+
+.matrix-label {
+    background: transparent;
+}
+
+.matrix-col-header {
+    background: linear-gradient(135deg, #854d0e 0%, #78350f 100%);
+    color: white;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.matrix-row-header {
+    background: linear-gradient(135deg, #a16207 0%, #92400e 100%);
+    color: white;
+    font-weight: 600;
+    writing-mode: horizontal-tb;
+    font-size: 15px;
+}
+
+.matrix-item {
+    background: white;
+    border: 2px solid #fbbf24;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex-direction: column;
+    gap: 8px;
+    padding: 20px 12px;
+    position: relative;
+    overflow: hidden;
+}
+
+.matrix-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(251, 191, 36, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.matrix-item:hover::before {
+    left: 100%;
+}
+
+.matrix-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(234, 179, 8, 0.3);
+    border-color: #f59e0b;
+}
+
+.item-number {
+    display: inline-block;
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    color: white;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.item-title {
+    font-weight: 600;
+    color: #78350f;
+    line-height: 1.4;
+    font-size: 13px;
+}
+
+.matrix-empty {
+    background: transparent;
+    border: none;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 900px) {
+    .insight-matrix {
+        padding: 20px;
+    }
+
+    .matrix-header,
+    .matrix-row {
+        grid-template-columns: 100px repeat(3, 1fr);
+        gap: 8px;
+    }
+
+    .matrix-cell {
+        padding: 12px 8px;
+        font-size: 12px;
+    }
+
+    .matrix-col-header,
+    .matrix-row-header {
+        font-size: 13px;
+    }
+
+    .item-number {
+        width: 24px;
+        height: 24px;
+        font-size: 11px;
+    }
+
+    .item-title {
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 600px) {
+    .summary-card {
+        flex-direction: column;
+        gap: 12px;
+        padding: 20px;
+    }
+
+    .summary-icon {
+        font-size: 28px;
+    }
+
+    .matrix-header,
+    .matrix-row {
+        grid-template-columns: 80px repeat(3, 1fr);
+        gap: 6px;
+    }
+
+    .matrix-cell {
+        padding: 10px 6px;
+        font-size: 11px;
+    }
+
+    .matrix-col-header,
+    .matrix-row-header {
+        font-size: 11px;
+    }
+
+    .item-number {
+        width: 20px;
+        height: 20px;
+        font-size: 10px;
+    }
+
+    .item-title {
+        font-size: 10px;
+    }
+
+    .glossary-tooltip {
+        max-width: 280px;
+        font-size: 13px;
+    }
+}
