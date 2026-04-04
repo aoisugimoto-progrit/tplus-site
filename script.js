@@ -249,3 +249,114 @@ if (sidebar && resizer && mainContent) {
         }
     });
 }
+
+
+// アコーディオン機能（education.htmlの各セクションを折りたたみ）
+document.addEventListener('DOMContentLoaded', () => {
+    if (window.location.pathname.includes('education')) {
+        const sections = document.querySelectorAll('#basics, #flow, #external, #screening, #internal, #event-driven, #insights');
+        
+        sections.forEach((section, index) => {
+            section.classList.add('accordion-section');
+            
+            if (index === 0) {
+                section.classList.add('active');
+            }
+            
+            const h2 = section.querySelector('h2');
+            if (!h2) return;
+
+            const header = document.createElement('div');
+            header.className = 'accordion-header';
+            h2.parentNode.insertBefore(header, h2);
+            header.appendChild(h2);
+
+            const toggleBtn = document.createElement('div');
+            toggleBtn.className = 'accordion-toggle-btn';
+            toggleBtn.innerHTML = `
+                <span class="accordion-toggle-icon">▼</span>
+                <span class="accordion-toggle-text">開く</span>
+            `;
+            header.appendChild(toggleBtn);
+            
+            const content = document.createElement('div');
+            content.className = 'accordion-content';
+            
+            while (header.nextSibling) {
+                content.appendChild(header.nextSibling);
+            }
+            section.appendChild(content);
+            
+            const updateToggleButton = (section) => {
+                const toggleText = section.querySelector('.accordion-toggle-text');
+                if (toggleText) {
+                    toggleText.textContent = section.classList.contains('active') ? '閉じる' : '開く';
+                }
+            };
+
+            updateToggleButton(section);
+
+            header.addEventListener('click', () => {
+                const isActive = section.classList.contains('active');
+                const headerTop = header.getBoundingClientRect().top + window.scrollY;
+                const scrollOffset = window.scrollY;
+
+                sections.forEach(s => {
+                    s.classList.remove('active');
+                    updateToggleButton(s);
+                });
+
+                if (!isActive) {
+                    section.classList.add('active');
+                    updateToggleButton(section);
+
+                    setTimeout(() => {
+                        const newHeaderTop = header.getBoundingClientRect().top + window.scrollY;
+                        const offset = newHeaderTop - headerTop;
+                        window.scrollTo({
+                            top: scrollOffset + offset - 100,
+                            behavior: 'smooth'
+                        });
+                    }, 50);
+                }
+            });
+        });
+    }
+});
+
+// 詳細展開ボタン機能（事例を見る）
+document.addEventListener('DOMContentLoaded', () => {
+    if (window.location.pathname.includes('education')) {
+        const allParagraphs = document.querySelectorAll('.card p, .info-box p');
+        
+        allParagraphs.forEach(p => {
+            const text = p.innerHTML;
+            
+            if (text.includes('<strong>例：</strong>') || text.includes('<strong>具体例：</strong>')) {
+                if (p.parentElement.classList.contains('example-container')) return;
+                
+                const container = document.createElement('div');
+                container.className = 'example-container';
+                p.parentNode.insertBefore(container, p);
+                
+                const toggleBtn = document.createElement('button');
+                toggleBtn.className = 'example-toggle-btn';
+                toggleBtn.innerHTML = '<span class="arrow">▼</span> 事例を見る';
+                container.appendChild(toggleBtn);
+                
+                const content = document.createElement('div');
+                content.className = 'example-content';
+                content.appendChild(p);
+                container.appendChild(content);
+                
+                toggleBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    container.classList.toggle('expanded');
+                    toggleBtn.innerHTML = container.classList.contains('expanded') 
+                        ? '<span class="arrow">▼</span> 事例を隠す'
+                        : '<span class="arrow">▼</span> 事例を見る';
+                });
+            }
+        });
+    }
+});
