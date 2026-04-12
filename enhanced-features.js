@@ -210,4 +210,105 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+    // ========== 読破率ポップアップ ==========
+    const sections = document.querySelectorAll('.content-inner section');
+    const totalSections = sections.length;
+    const completedSections = new Set();
+    const popup = document.getElementById('completion-popup');
+    const percentageElement = popup.querySelector('.completion-percentage');
+    let isPopupShowing = false;
+    let pendingCompletionRate = null;
+
+    function showCompletionPopup(percentage) {
+        // すでに表示中なら何もしない
+        if (isPopupShowing) return;
+
+        isPopupShowing = true;
+        percentageElement.textContent = percentage + '%';
+        popup.classList.add('show');
+
+        // 2.5秒後に非表示
+        setTimeout(() => {
+            popup.classList.remove('show');
+            isPopupShowing = false;
+
+            // 待機中の読破率があれば表示
+            if (pendingCompletionRate !== null) {
+                const rate = pendingCompletionRate;
+                pendingCompletionRate = null;
+                setTimeout(() => showCompletionPopup(rate), 500);
+            }
+        }, 2500);
+    }
+
+    function checkSectionCompletion() {
+        let newCompletion = false;
+        let latestCompletionRate = 0;
+
+        sections.forEach((section) => {
+            const rect = section.getBoundingClientRect();
+            const sectionId = section.id;
+
+            // セクションの80%が画面より上に行ったら「読了」とみなす
+            if (rect.top + rect.height * 0.8 < window.innerHeight && !completedSections.has(sectionId)) {
+                completedSections.add(sectionId);
+                newCompletion = true;
+
+                // 読破率を計算（10%刻み）
+                latestCompletionRate = Math.round((completedSections.size / totalSections) * 100);
+            }
+        });
+
+        // 新しい読了があった場合のみポップアップ
+        if (newCompletion && latestCompletionRate >= 10) {
+            if (isPopupShowing) {
+                // すでに表示中の場合は保留
+                pendingCompletionRate = latestCompletionRate;
+            } else {
+                showCompletionPopup(latestCompletionRate);
+            }
+        }
+    }
+
+    // スクロールが止まったら表示（1秒間スクロールがなければ停止とみなす）
+    let scrollStopTimeout;
+    let isScrolling = false;
+
+    window.addEventListener('scroll', () => {
+        isScrolling = true;
+
+        // 既存のタイマーをクリア
+        if (scrollStopTimeout) {
+            clearTimeout(scrollStopTimeout);
+        }
+
+        // 1秒後にスクロール停止とみなす
+        scrollStopTimeout = setTimeout(() => {
+            isScrolling = false;
+            checkSectionCompletion();
+        }, 1000);
+    });
+
+    // 初期チェック
+    checkSectionCompletion();
+
+    // ========== 書籍「もっと見る」ボタン ==========
+    const showMoreButtons = document.querySelectorAll('.show-more-books');
+
+    showMoreButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // 親要素のbook-gridを取得
+            const bookGrid = this.previousElementSibling;
+
+            // data-priority="3"の書籍を表示
+            const hiddenBooks = bookGrid.querySelectorAll('.book-cover[data-priority="3"]');
+            hiddenBooks.forEach(book => {
+                book.classList.add('show');
+            });
+
+            // ボタンを非表示
+            this.classList.add('hidden');
+        });
+    });
 });
