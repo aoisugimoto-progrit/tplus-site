@@ -119,75 +119,61 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // ========== マトリックスアイテムのクリック時スクロール ==========
 document.addEventListener('DOMContentLoaded', function() {
-    const matrixItems = document.querySelectorAll('.matrix-item');
+    const matrixItems = document.querySelectorAll('.mx-cell.mx-item');
 
     matrixItems.forEach(item => {
         item.addEventListener('click', function() {
-            const number = this.getAttribute('data-number');
+            const titleElement = this.querySelector('.mx-title');
+            if (!titleElement) return;
 
-            // 対応するカードを探す（例：①市場の構造的な伸び）
-            const cards = document.querySelectorAll('.card-grid .card');
-            cards.forEach(card => {
-                const heading = card.querySelector('h5');
-                if (heading && heading.textContent.startsWith('①') && number === '1') {
-                    card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            const title = titleElement.textContent.trim();
+
+            // タイトルから番号を推測してidを特定
+            const idMap = {
+                '市場の構造的な伸び': 'insight-1',
+                '成長企業のコバンザメ': 'insight-2',
+                '国策との強いリンク': 'insight-3',
+                'デカいダメ競合': 'insight-4',
+                '原材料価格下落': 'insight-5',
+                '成長市場・過当競争市場の武器商人': 'insight-6',
+                'ストック化': 'insight-7',
+                '構造的な参入障壁': 'insight-8',
+                '資産の負債化': 'insight-9',
+                '業態転換によるバリューチェーン切り上げ': 'insight-10',
+                '内製化でコスト削減': 'insight-11',
+                '紅ショウガ理論': 'insight-12',
+                '構造的な収益率向上': 'insight-13',
+                '巨大市場を創出しうる新技術': 'insight-14',
+                '有能な経営者': 'insight-15',
+                '商流の中の属人的・地縁的なつながり': 'insight-16',
+                '強烈な営業力': 'insight-17',
+                '特殊技術': 'insight-18',
+                '徹底的な仕組み化': 'insight-19'
+            };
+
+            const targetId = idMap[title];
+            if (targetId) {
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
                     // ハイライト効果
-                    card.style.transition = 'all 0.3s ease';
-                    card.style.transform = 'scale(1.02)';
-                    card.style.boxShadow = '0 8px 32px rgba(14, 165, 233, 0.3)';
-                    setTimeout(() => {
-                        card.style.transform = '';
-                        card.style.boxShadow = '';
-                    }, 1000);
-                } else if (heading && heading.textContent.startsWith('②') && number === '2') {
-                    card.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    card.style.transition = 'all 0.3s ease';
-                    card.style.transform = 'scale(1.02)';
-                    card.style.boxShadow = '0 8px 32px rgba(14, 165, 233, 0.3)';
-                    setTimeout(() => {
-                        card.style.transform = '';
-                        card.style.boxShadow = '';
-                    }, 1000);
-                } else if (heading && heading.textContent.startsWith('③') && number === '3') {
-                    card.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    card.style.transition = 'all 0.3s ease';
-                    card.style.transform = 'scale(1.02)';
-                    card.style.boxShadow = '0 8px 32px rgba(14, 165, 233, 0.3)';
-                    setTimeout(() => {
-                        card.style.transform = '';
-                        card.style.boxShadow = '';
-                    }, 1000);
-                } else if (heading && heading.textContent.startsWith('④') && number === '4') {
-                    card.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    card.style.transition = 'all 0.3s ease';
-                    card.style.transform = 'scale(1.02)';
-                    card.style.boxShadow = '0 8px 32px rgba(14, 165, 233, 0.3)';
-                    setTimeout(() => {
-                        card.style.transform = '';
-                        card.style.boxShadow = '';
-                    }, 1000);
-                } else if (heading && heading.textContent.startsWith('⑤') && number === '5') {
-                    card.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    card.style.transition = 'all 0.3s ease';
-                    card.style.transform = 'scale(1.02)';
-                    card.style.boxShadow = '0 8px 32px rgba(14, 165, 233, 0.3)';
-                    setTimeout(() => {
-                        card.style.transform = '';
-                        card.style.boxShadow = '';
-                    }, 1000);
-                } else if (heading && heading.textContent.startsWith('⑥') && number === '6') {
-                    card.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    card.style.transition = 'all 0.3s ease';
-                    card.style.transform = 'scale(1.02)';
-                    card.style.boxShadow = '0 8px 32px rgba(14, 165, 233, 0.3)';
-                    setTimeout(() => {
-                        card.style.transform = '';
-                        card.style.boxShadow = '';
-                    }, 1000);
+                    const card = targetElement.closest('.card');
+                    if (card) {
+                        card.style.transition = 'all 0.3s ease';
+                        card.style.transform = 'scale(1.02)';
+                        card.style.boxShadow = '0 8px 32px rgba(14, 165, 233, 0.3)';
+                        setTimeout(() => {
+                            card.style.transform = '';
+                            card.style.boxShadow = '';
+                        }, 1000);
+                    }
                 }
-                // 他の番号も同様に追加可能
-            });
+            }
         });
+
+        // カーソルポインター
+        item.style.cursor = 'pointer';
     });
 });
 
