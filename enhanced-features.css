@@ -788,32 +788,89 @@
 
 .book-cover[data-priority="3"] {
     order: 3;
-    display: none; /* 初期は非表示 */
-}
-
-.book-cover[data-priority="3"].show {
     display: block;
 }
 
-/* もっと見るボタン */
-.show-more-books {
-    display: inline-block;
-    margin-top: 16px;
-    padding: 10px 24px;
+/* ========== 動画グリッド ========== */
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.video-card {
+    display: block;
+    text-decoration: none;
     background: white;
-    border: 2px solid #333;
     border-radius: 6px;
-    font-size: 14px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.video-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.video-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    position: relative;
+}
+
+/* YouTubeアイコン */
+.video-card::before {
+    content: "";
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    width: 28px;
+    height: 20px;
+    background: #ff0000;
+    border-radius: 3px;
+    z-index: 2;
+}
+
+.video-card::after {
+    content: "";
+    position: absolute;
+    top: 14px;
+    left: 18px;
+    width: 0;
+    height: 0;
+    border-left: 8px solid white;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    z-index: 3;
+}
+
+.video-title {
+    padding: 8px 10px 6px 10px;
+    font-size: 11px;
+    line-height: 1.4;
+    color: #333;
     font-weight: 500;
-    cursor: pointer;
-    transition: all 0.3s ease;
+    min-height: 45px;
+    max-height: 45px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
 }
 
-.show-more-books:hover {
-    background: #333;
-    color: white;
+.video-duration {
+    padding: 0 10px 8px 10px;
+    font-size: 10px;
+    color: #666;
 }
 
-.show-more-books.hidden {
-    display: none;
+@media (max-width: 768px) {
+    .video-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    }
 }

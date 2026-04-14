@@ -198,103 +198,71 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // ========== 読破率ポップアップ ==========
-    const sections = document.querySelectorAll('.content-inner section');
-    const totalSections = sections.length;
-    const completedSections = new Set();
     const popup = document.getElementById('completion-popup');
     const percentageElement = popup.querySelector('.completion-percentage');
+    const textElement = popup.querySelector('.completion-text');
     let isPopupShowing = false;
-    let pendingCompletionRate = null;
 
-    function showCompletionPopup(percentage) {
+    // 20%刻みのマイルストーン
+    const milestones = [20, 40, 60, 80, 100];
+    const shownMilestones = new Set();
+
+    function showCompletionPopup(percentage, isComplete = false) {
         // すでに表示中なら何もしない
         if (isPopupShowing) return;
 
         isPopupShowing = true;
         percentageElement.textContent = percentage + '%';
+
+        // 100%の時は特別なメッセージ
+        if (isComplete) {
+            textElement.textContent = '読了お疲れ様でした！';
+        } else {
+            textElement.textContent = '読了';
+        }
+
         popup.classList.add('show');
 
-        // 2.5秒後に非表示
+        // 3秒後に非表示
         setTimeout(() => {
             popup.classList.remove('show');
             isPopupShowing = false;
-
-            // 待機中の読破率があれば表示
-            if (pendingCompletionRate !== null) {
-                const rate = pendingCompletionRate;
-                pendingCompletionRate = null;
-                setTimeout(() => showCompletionPopup(rate), 500);
-            }
-        }, 2500);
+        }, 3000);
     }
 
-    function checkSectionCompletion() {
-        let newCompletion = false;
-        let latestCompletionRate = 0;
+    function calculateReadingProgress() {
+        // ページ全体の高さとスクロール位置から読了率を計算
+        const windowHeight = window.innerHeight;
+        const documentHeight = document.documentElement.scrollHeight;
+        const scrollTop = window.scrollY;
 
-        sections.forEach((section) => {
-            const rect = section.getBoundingClientRect();
-            const sectionId = section.id;
+        // スクロール可能な範囲
+        const scrollableHeight = documentHeight - windowHeight;
 
-            // セクションの80%が画面より上に行ったら「読了」とみなす
-            if (rect.top + rect.height * 0.8 < window.innerHeight && !completedSections.has(sectionId)) {
-                completedSections.add(sectionId);
-                newCompletion = true;
+        // 読了率（0-100）
+        const progress = scrollableHeight > 0 ? Math.min(100, Math.round((scrollTop / scrollableHeight) * 100)) : 0;
 
-                // 読破率を計算（10%刻み）
-                latestCompletionRate = Math.round((completedSections.size / totalSections) * 100);
+        return progress;
+    }
+
+    function checkReadingProgress() {
+        const progress = calculateReadingProgress();
+
+        // 20%刻みのマイルストーンを通過したかチェック
+        milestones.forEach(milestone => {
+            if (progress >= milestone && !shownMilestones.has(milestone)) {
+                shownMilestones.add(milestone);
+                const isComplete = milestone === 100;
+                showCompletionPopup(milestone, isComplete);
             }
         });
-
-        // 新しい読了があった場合のみポップアップ
-        if (newCompletion && latestCompletionRate >= 10) {
-            if (isPopupShowing) {
-                // すでに表示中の場合は保留
-                pendingCompletionRate = latestCompletionRate;
-            } else {
-                showCompletionPopup(latestCompletionRate);
-            }
-        }
     }
 
-    // スクロールが止まったら表示（1秒間スクロールがなければ停止とみなす）
-    let scrollStopTimeout;
-    let isScrolling = false;
-
+    // スクロールした瞬間に即座にチェック
     window.addEventListener('scroll', () => {
-        isScrolling = true;
-
-        // 既存のタイマーをクリア
-        if (scrollStopTimeout) {
-            clearTimeout(scrollStopTimeout);
-        }
-
-        // 1秒後にスクロール停止とみなす
-        scrollStopTimeout = setTimeout(() => {
-            isScrolling = false;
-            checkSectionCompletion();
-        }, 1000);
+        checkReadingProgress();
     });
 
     // 初期チェック
-    checkSectionCompletion();
-
-    // ========== 書籍「もっと見る」ボタン ==========
-    const showMoreButtons = document.querySelectorAll('.show-more-books');
-
-    showMoreButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            // 親要素のbook-gridを取得
-            const bookGrid = this.previousElementSibling;
-
-            // data-priority="3"の書籍を表示
-            const hiddenBooks = bookGrid.querySelectorAll('.book-cover[data-priority="3"]');
-            hiddenBooks.forEach(book => {
-                book.classList.add('show');
-            });
-
-            // ボタンを非表示
-            this.classList.add('hidden');
-        });
-    });
+    checkReadingProgress();
 });
