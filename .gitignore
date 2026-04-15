@@ -1,0 +1,16 @@
+# バックアップファイル
+*.backup
+*.backup-*
+*.bak
+
+# バージョン違いファイル（必要なら個別にコミット）
+*-v2.html
+*-v2.css
+*-v2.js
+*-enhanced.html
+*-pattern-*.html
+*-pattern-*.css
+*-pattern-*.js
+
+# macOS
+.DS_Store
