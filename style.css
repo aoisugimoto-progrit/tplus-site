@@ -3113,6 +3113,39 @@ p {
 }
 
 /* ========================================
+   グループC: ラベル追加（はんこ風）
+   ======================================== */
+
+/* ラベル共通スタイル - はんこ風 */
+.section-label {
+    display: inline-block;
+    padding: 8px 20px;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 900;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transform: rotate(-3deg);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
+    border: 3px solid;
+}
+
+/* コラムラベル（黄色のはんこ） */
+.label-column {
+    background-color: #FEF3C7;
+    color: #92400E;
+    border-color: #F59E0B;
+}
+
+/* 本質ラベル（青色のはんこ） */
+.label-essence {
+    background-color: #DBEAFE;
+    color: #1E40AF;
+    border-color: #3B82F6;
+}
+
+/* ========================================
    グループ2: プログレスバー追加
    ======================================== */
 
