@@ -3169,6 +3169,49 @@ p {
 }
 
 /* ========================================
+   グループF-6: 19の成長戦略リスト
+   ======================================== */
+
+.insight-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 24px;
+}
+
+.insight-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    border-left: 4px solid var(--color-primary);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.insight-number {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--color-primary);
+    min-width: 40px;
+    flex-shrink: 0;
+}
+
+.insight-item h4 {
+    margin: 0 0 8px 0;
+    font-size: 18px;
+    color: var(--color-text-dark);
+}
+
+.insight-item p {
+    margin: 0;
+    color: #6B7280;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* ========================================
    グループE: 小規模な構成変更
    ======================================== */
 
