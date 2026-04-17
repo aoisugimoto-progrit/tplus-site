@@ -3182,9 +3182,9 @@ p {
 }
 
 .fraction {
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
+    display: inline-grid;
+    grid-template-rows: auto auto;
+    justify-items: stretch;
     vertical-align: middle;
     margin: 0 8px;
 }
@@ -3194,12 +3194,18 @@ p {
     padding: 4px 12px;
     font-size: 16px;
     font-weight: 600;
+    text-align: center;
+    white-space: nowrap;
+    grid-column: 1;
 }
 
 .denominator {
     padding: 4px 12px;
     font-size: 16px;
     font-weight: 600;
+    text-align: center;
+    white-space: nowrap;
+    grid-column: 1;
 }
 
 /* ========================================
