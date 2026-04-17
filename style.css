@@ -3124,7 +3124,8 @@ p {
     border-radius: 50%;
     font-size: 13px;
     font-weight: 900;
-    margin-bottom: 12px;
+    margin-bottom: 4px;
+    margin-right: 8px;
     letter-spacing: 0px;
     transform: rotate(-10deg);
     border: 6px double;
@@ -3159,14 +3160,14 @@ p {
 /* コラムラベル（朱肉の赤） */
 .label-column {
     background: radial-gradient(circle at 30% 30%, #E60012, #B00000);
-    color: #FFF5F5;
+    color: #FFFFFF;
     border-color: #8B0000;
 }
 
 /* 本質ラベル（濃い朱肉の赤） */
 .label-essence {
     background: radial-gradient(circle at 30% 30%, #CC0000, #8B0000);
-    color: #FFF5F5;
+    color: #FFFFFF;
     border-color: #660000;
 }
 
