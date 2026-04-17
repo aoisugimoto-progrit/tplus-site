@@ -3154,18 +3154,18 @@ p {
     left: 4px;
 }
 
-/* コラムラベル（朱肉の赤） */
+/* コラムラベル（濃い朱肉の赤） */
 .label-column {
-    background: radial-gradient(circle at 30% 30%, #E60012, #B00000);
-    color: #FFFFFF;
-    border-color: #8B0000;
-}
-
-/* 本質ラベル（濃い朱肉の赤） */
-.label-essence {
     background: radial-gradient(circle at 30% 30%, #CC0000, #8B0000);
     color: #FFFFFF;
     border-color: #660000;
+}
+
+/* 本質ラベル（明るい朱肉の赤） */
+.label-essence {
+    background: radial-gradient(circle at 30% 30%, #E60012, #B00000);
+    color: #FFFFFF;
+    border-color: #8B0000;
 }
 
 /* ========================================
