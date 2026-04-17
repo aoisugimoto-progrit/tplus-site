@@ -354,3 +354,52 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+// ========================================
+// グループ2: プログレスバー機能
+// ========================================
+
+// スクロール連動で進捗バー更新
+window.addEventListener('scroll', function() {
+    const progressBar = document.getElementById('progressBar');
+    if (progressBar) {
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        progressBar.style.width = scrolled + '%';
+    }
+});
+
+// サイドバーの目次に進捗マーク追加
+document.addEventListener('DOMContentLoaded', function() {
+    const sections = document.querySelectorAll('.content-inner > section[id]');
+    const navLinks = document.querySelectorAll('.sidebar nav a[href^="#"]');
+
+    if (sections.length === 0 || navLinks.length === 0) return;
+
+    window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (pageYOffset >= (sectionTop - 200)) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            const href = link.getAttribute('href');
+            if (href && href.includes(current) && current !== '') {
+                link.classList.add('active');
+                // チェックマークを追加（まだ付いていない場合）
+                if (!link.querySelector('.progress-check')) {
+                    const checkMark = document.createElement('span');
+                    checkMark.className = 'progress-check';
+                    checkMark.textContent = '✓ ';
+                    link.prepend(checkMark);
+                }
+            }
+        });
+    });
+});

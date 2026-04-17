@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>バージョン選択 | 瀧本ゼミ T＋</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, 'Hiragino Sans', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #e0e5ec 0%, #d4d9e0 100%);
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 1000px;
+            width: 100%;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: clamp(32px, 6vw, 52px);
+            margin-bottom: 20px;
+            color: #2d3748;
+            font-weight: 300;
+            letter-spacing: -1px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #5a6169;
+            font-size: 18px;
+            margin-bottom: 60px;
+        }
+
+        .version-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+        }
+
+        .version-card {
+            background: #e0e5ec;
+            padding: 50px 40px;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow:
+                12px 12px 24px rgba(163, 177, 198, 0.6),
+                -12px -12px 24px rgba(255, 255, 255, 0.5);
+        }
+
+        .version-card:hover {
+            transform: translateY(-10px);
+            box-shadow:
+                16px 16px 32px rgba(163, 177, 198, 0.6),
+                -16px -16px 32px rgba(255, 255, 255, 0.5);
+        }
+
+        .version-card h2 {
+            font-size: 32px;
+            margin-bottom: 15px;
+            color: #2d3748;
+            font-weight: 700;
+        }
+
+        .version-label {
+            color: #5a6169;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+        }
+
+        .version-features {
+            color: #5a6169;
+            font-size: 15px;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .version-features li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .version-features li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #4ADE80;
+            font-weight: bold;
+        }
+
+        .version-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: #e0e5ec;
+            color: #2d3748;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            box-shadow:
+                8px 8px 16px rgba(163, 177, 198, 0.6),
+                -8px -8px 16px rgba(255, 255, 255, 0.5);
+        }
+
+        .version-button:hover {
+            box-shadow:
+                12px 12px 24px rgba(163, 177, 198, 0.6),
+                -12px -12px 24px rgba(255, 255, 255, 0.5);
+            transform: translateY(-3px);
+        }
+
+        .version-button:active {
+            box-shadow:
+                inset 6px 6px 12px rgba(163, 177, 198, 0.6),
+                inset -6px -6px 12px rgba(255, 255, 255, 0.5);
+            transform: translateY(0);
+        }
+
+        @media (max-width: 900px) {
+            .version-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>瀧本ゼミ T＋</h1>
+        <p class="subtitle">デザインバージョンを選択してください</p>
+
+        <div class="version-grid">
+            <div class="version-card">
+                <h2>オリジナル版</h2>
+                <p class="version-label">Current Version</p>
+                <ul class="version-features">
+                    <li>現行のデザイン</li>
+                    <li>Glassmorphism + グラデーション</li>
+                    <li>動的な背景エフェクト</li>
+                    <li>カラフルで活発な印象</li>
+                </ul>
+                <a href="index.html" class="version-button">オリジナル版を見る →</a>
+            </div>
+
+            <div class="version-card">
+                <h2>Neomorphism版</h2>
+                <p class="version-label">Version 2.0</p>
+                <ul class="version-features">
+                    <li>パターンCのデザイン</li>
+                    <li>Neomorphism（柔らかい影）</li>
+                    <li>ミニマル・エレガント</li>
+                    <li>落ち着いた洗練された印象</li>
+                </ul>
+                <a href="index-v2.html" class="version-button">v2.0を見る →</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
