@@ -3116,33 +3116,42 @@ p {
    グループC: ラベル追加（はんこ風）
    ======================================== */
 
-/* ラベル共通スタイル - はんこ風 */
+/* ボックス要素に相対配置を追加 */
+.highlight-box,
+.info-box {
+    position: relative;
+}
+
+/* ラベル共通スタイル - 大きめのはんこ風 */
 .section-label {
-    display: inline-block;
-    padding: 8px 20px;
-    border-radius: 6px;
-    font-size: 16px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 12px 28px;
+    border-radius: 8px;
+    font-size: 22px;
     font-weight: 900;
-    margin-bottom: 16px;
     text-transform: uppercase;
-    letter-spacing: 2px;
-    transform: rotate(-3deg);
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
-    border: 3px solid;
+    letter-spacing: 3px;
+    transform: rotate(-8deg);
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2);
+    border: 4px solid;
+    z-index: 10;
+    opacity: 0.85;
 }
 
-/* コラムラベル（黄色のはんこ） */
+/* コラムラベル（蛍光赤のはんこ） */
 .label-column {
-    background-color: #FEF3C7;
-    color: #92400E;
-    border-color: #F59E0B;
+    background-color: #FF3366;
+    color: #FFFFFF;
+    border-color: #FF0044;
 }
 
-/* 本質ラベル（青色のはんこ） */
+/* 本質ラベル（蛍光赤のはんこ） */
 .label-essence {
-    background-color: #DBEAFE;
-    color: #1E40AF;
-    border-color: #3B82F6;
+    background-color: #FF3366;
+    color: #FFFFFF;
+    border-color: #FF0044;
 }
 
 /* ========================================
