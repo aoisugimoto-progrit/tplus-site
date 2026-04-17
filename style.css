@@ -3124,8 +3124,7 @@ p {
     border-radius: 50%;
     font-size: 13px;
     font-weight: 900;
-    margin-bottom: 4px;
-    margin-right: 8px;
+    margin: 0 4px 2px 0;
     letter-spacing: 0px;
     transform: rotate(-10deg);
     border: 6px double;
