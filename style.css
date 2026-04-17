@@ -3116,28 +3116,20 @@ p {
    グループC: ラベル追加（はんこ風）
    ======================================== */
 
-/* ボックス要素に相対配置を追加 */
-.highlight-box,
-.info-box {
-    position: relative;
-}
-
-/* ラベル共通スタイル - 大きめのはんこ風 */
+/* ラベル共通スタイル - 小さめのはんこ風 */
 .section-label {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    padding: 12px 28px;
-    border-radius: 8px;
-    font-size: 22px;
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 6px;
+    font-size: 14px;
     font-weight: 900;
+    margin-bottom: 12px;
     text-transform: uppercase;
-    letter-spacing: 3px;
-    transform: rotate(-8deg);
-    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2);
-    border: 4px solid;
-    z-index: 10;
-    opacity: 0.85;
+    letter-spacing: 2px;
+    transform: rotate(-5deg);
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+    border: 3px solid;
+    opacity: 0.9;
 }
 
 /* コラムラベル（蛍光赤のはんこ） */
