@@ -3067,3 +3067,48 @@ p {
     }
 }
 
+/* ========================================
+   グループ1: 視覚的な区切り強化
+   ======================================== */
+
+/* セクション間の余白と背景色の交互配置 */
+.content-inner > section {
+    margin: 80px 0;
+    padding: 60px 40px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+/* 偶数セクションに薄いグレー背景 */
+.content-inner > section:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* 奇数セクションは白背景 */
+.content-inner > section:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+/* セクション見出し（h2）を大きく目立たせる */
+.content-inner > section > h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 3px solid var(--color-primary);
+    color: var(--color-primary-dark);
+}
+
+/* モバイル対応 */
+@media (max-width: 768px) {
+    .content-inner > section {
+        margin: 40px 0;
+        padding: 30px 20px;
+    }
+
+    .content-inner > section > h2 {
+        font-size: 28px;
+        margin-bottom: 30px;
+        padding-bottom: 15px;
+    }
+}
+
