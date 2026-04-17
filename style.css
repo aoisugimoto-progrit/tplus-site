@@ -3118,38 +3118,56 @@ p {
 
 /* ラベル共通スタイル - 円形ハンコ風 */
 .section-label {
-    display: inline-block;
-    width: 60px;
-    height: 60px;
+    display: inline-flex;
+    width: 65px;
+    height: 65px;
     border-radius: 50%;
-    font-size: 13px;
+    font-size: 11px;
     font-weight: 900;
     margin-bottom: 12px;
-    letter-spacing: 2px;
-    transform: rotate(-8deg);
+    letter-spacing: 0px;
+    transform: rotate(-10deg);
     border: 4px double;
-    opacity: 0.85;
-    display: flex;
+    opacity: 0.9;
     align-items: center;
     justify-content: center;
     writing-mode: vertical-rl;
     text-orientation: upright;
-    padding: 8px 0;
-    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.2), 2px 2px 4px rgba(0, 0, 0, 0.3);
+    padding: 10px 0;
+    box-shadow:
+        inset 0 0 10px rgba(0, 0, 0, 0.3),
+        inset 0 0 20px rgba(255, 255, 255, 0.1),
+        2px 2px 4px rgba(0, 0, 0, 0.4),
+        0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+    position: relative;
 }
 
-/* コラムラベル（青ハンコ） */
+/* 花丸風の装飾 */
+.section-label::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 2px solid;
+    border-color: inherit;
+    opacity: 0.5;
+    top: -3px;
+    left: -3px;
+}
+
+/* コラムラベル（朱肉の赤） */
 .label-column {
-    background-color: #2563EB;
-    color: #FFFFFF;
-    border-color: #1E40AF;
+    background: radial-gradient(circle at 30% 30%, #E60012, #B00000);
+    color: #FFF5F5;
+    border-color: #8B0000;
 }
 
-/* 本質ラベル（赤ハンコ） */
+/* 本質ラベル（濃い朱肉の赤） */
 .label-essence {
-    background-color: #FF0000;
-    color: #FFFFFF;
-    border-color: #CC0000;
+    background: radial-gradient(circle at 30% 30%, #CC0000, #8B0000);
+    color: #FFF5F5;
+    border-color: #660000;
 }
 
 /* ========================================
