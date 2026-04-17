@@ -3169,6 +3169,40 @@ p {
 }
 
 /* ========================================
+   グループD: 分数表示
+   ======================================== */
+
+/* 数式表示 */
+.formula-inline {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 18px;
+    margin: 16px 0;
+}
+
+.fraction {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    vertical-align: middle;
+    margin: 0 8px;
+}
+
+.numerator {
+    border-bottom: 2px solid #1F2937;
+    padding: 4px 12px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.denominator {
+    padding: 4px 12px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* ========================================
    グループ2: プログレスバー追加
    ======================================== */
 
