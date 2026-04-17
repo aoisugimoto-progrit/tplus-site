@@ -3116,34 +3116,40 @@ p {
    グループC: ラベル追加（はんこ風）
    ======================================== */
 
-/* ラベル共通スタイル - 小さめのはんこ風 */
+/* ラベル共通スタイル - 円形ハンコ風 */
 .section-label {
     display: inline-block;
-    padding: 6px 16px;
-    border-radius: 6px;
-    font-size: 14px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    font-size: 13px;
     font-weight: 900;
     margin-bottom: 12px;
-    text-transform: uppercase;
     letter-spacing: 2px;
-    transform: rotate(-5deg);
-    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
-    border: 3px solid;
-    opacity: 0.9;
+    transform: rotate(-8deg);
+    border: 4px double;
+    opacity: 0.85;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    padding: 8px 0;
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.2), 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-/* コラムラベル（蛍光赤のはんこ） */
+/* コラムラベル（青ハンコ） */
 .label-column {
-    background-color: #FF3366;
+    background-color: #2563EB;
     color: #FFFFFF;
-    border-color: #FF0044;
+    border-color: #1E40AF;
 }
 
-/* 本質ラベル（蛍光赤のはんこ） */
+/* 本質ラベル（赤ハンコ） */
 .label-essence {
-    background-color: #FF3366;
+    background-color: #FF0000;
     color: #FFFFFF;
-    border-color: #FF0044;
+    border-color: #CC0000;
 }
 
 /* ========================================
