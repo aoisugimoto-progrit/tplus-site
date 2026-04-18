@@ -1464,7 +1464,7 @@
 
         .card {
             background: linear-gradient(135deg, rgba(245, 250, 252, 1) 0%, rgba(240, 248, 252, 1) 100%);
-            padding: 25px;
+            padding: var(--spacing-md);
             border-radius: 2px;
             border: 2px solid rgba(10, 80, 70, 0.2);
             transition: all 0.3s;
@@ -1523,9 +1523,9 @@
         .highlight-box {
             background: linear-gradient(135deg, rgba(15, 35, 45, 1) 0%, rgba(10, 60, 55, 1) 50%, rgba(15, 30, 80, 1) 100%);
             color: white;
-            padding: 30px;
+            padding: var(--spacing-lg);
             border-radius: 2px;
-            margin: 25px 0;
+            margin: var(--spacing-md) 0;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
             position: relative;
             overflow: hidden;
@@ -1571,8 +1571,8 @@
         .info-box {
             background: linear-gradient(135deg, rgba(240, 250, 248, 1) 0%, rgba(235, 248, 245, 1) 100%);
             border-left: 5px solid rgba(10, 80, 70, 1);
-            padding: 20px;
-            margin: 20px 0;
+            padding: var(--spacing-md);
+            margin: var(--spacing-md) 0;
             border-radius: 2px;
             box-shadow: 0 2px 10px rgba(10, 60, 55, 0.1);
         }
@@ -2698,7 +2698,7 @@ body {
 
 .card {
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(250, 252, 255, 0.98) 100%);
-    padding: 30px;
+    padding: var(--spacing-lg);
     border-radius: 12px;
     border: 2px solid rgba(10, 80, 70, 0.15);
     box-shadow: 0 4px 20px rgba(10, 60, 55, 0.08);
@@ -2728,8 +2728,8 @@ body {
 .info-box {
     background: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(252, 254, 255, 1) 100%);
     border-left: 5px solid rgba(10, 80, 70, 1);
-    padding: 25px;
-    margin: 30px 0;
+    padding: var(--spacing-md);
+    margin: var(--spacing-lg) 0;
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(10, 60, 55, 0.12);
 }
