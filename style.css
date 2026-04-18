@@ -2666,10 +2666,11 @@ body {
 }
 
 .content-inner h2 {
-    background: linear-gradient(180deg, #4ADE80 0%, #22D3EE 50%, #818CF8 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: rgba(15, 35, 45, 1);
+    background: none;
+    -webkit-background-clip: unset;
+    -webkit-text-fill-color: rgba(15, 35, 45, 1);
+    background-clip: unset;
     font-size: clamp(24px, 3.5vw, 32px);
     font-weight: 700;
     margin: 50px 0 30px 0;
@@ -2919,6 +2920,54 @@ p {
 .card-grid-vertical .card {
     padding: 15px 20px;
     margin: 0;
+}
+
+/* デュポン分析の数式表示 */
+.formula-inline {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-size: 18px;
+    margin: 15px 0;
+}
+
+.fraction {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    vertical-align: middle;
+    margin: 0 8px;
+}
+
+.numerator {
+    border-bottom: 2px solid #2D4A63;
+    padding: 5px 15px;
+    font-weight: 600;
+    color: #2D4A63;
+}
+
+.denominator {
+    padding: 5px 15px;
+    font-weight: 600;
+    color: #2D4A63;
+}
+
+/* 読了時間インライン表示 */
+.reading-time-inline {
+    font-size: 14px !important;
+    color: #1F2937 !important;
+    font-weight: 400 !important;
+}
+
+/* 用語説明 */
+.glossary-term {
+    color: #1F2937;
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px dotted #6B7280;
+    cursor: help;
 }
 
 /* 外部リンクのスタイル */
@@ -3297,3 +3346,304 @@ p {
     margin-right: 6px;
 }
 
+
+/* 本サイトの目的セクション */
+.purpose-text {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.purpose-text p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 20px;
+}
+
+.purpose-text p:last-child {
+    margin-bottom: 0;
+}
+
+/* P/L構造図解 */
+.pl-structure {
+    margin: 30px 0;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.pl-row {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    gap: 20px;
+}
+
+.pl-box {
+    padding: 15px 30px;
+    border-radius: 6px;
+    font-weight: 600;
+    text-align: center;
+    color: white;
+    min-width: 200px;
+}
+
+.pl-top {
+    background: #5B8DB8;
+}
+
+.pl-main {
+    background: #7BA7CC;
+}
+
+.pl-final {
+    background: #5B8DB8;
+    font-size: 18px;
+}
+
+.pl-note {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.pl-arrow-down {
+    color: #5B8DB8;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.pl-side-box {
+    padding: 8px 16px;
+    background: white;
+    border: 2px solid #5B8DB8;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #333;
+}
+
+.pl-side-box-split {
+    display: flex;
+    gap: 8px;
+}
+
+.pl-side-box-split span {
+    padding: 8px 12px;
+    background: white;
+    border: 2px solid #5B8DB8;
+    border-radius: 4px;
+    font-size: 13px;
+    color: #333;
+}
+
+.pl-description {
+    font-size: 12px;
+    color: #666;
+    margin: 0;
+    max-width: 250px;
+}
+
+@media (max-width: 768px) {
+    .pl-row {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .pl-box {
+        min-width: 100%;
+    }
+    
+    .pl-note {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+/* P/Lフローマトリックス（19マトリックススタイル） */
+.pl-flow-matrix {
+    margin: 30px 0;
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.pl-matrix-row {
+    display: grid;
+    grid-template-columns: 2fr 2fr 3fr;
+    gap: 15px;
+    margin-bottom: 15px;
+    align-items: center;
+}
+
+.pl-matrix-header {
+    grid-template-columns: 1fr;
+    margin-bottom: 20px;
+}
+
+.pl-matrix-footer {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 3px solid #5B8DB8;
+}
+
+.pl-matrix-cell {
+    padding: 18px 25px;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.3s;
+}
+
+.pl-header-cell {
+    background: #5B8DB8;
+    color: white;
+    font-size: 18px;
+    border: none;
+}
+
+.pl-main-cell {
+    background: #7BA7CC;
+    color: white;
+    border: 2px solid #5B8DB8;
+}
+
+.pl-side-cell {
+    background: #E8F1F8;
+    color: #2C5F7F;
+    border: 2px dashed #7BA7CC;
+    font-size: 14px;
+}
+
+.pl-side-split {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 10px;
+}
+
+.pl-side-split span {
+    padding: 8px;
+    background: white;
+    border: 1px solid #7BA7CC;
+    border-radius: 4px;
+}
+
+.pl-final-cell {
+    background: #5B8DB8;
+    color: white;
+    font-size: 18px;
+    border: 3px solid #2C5F7F;
+}
+
+.pl-matrix-description {
+    font-size: 13px;
+    color: #666;
+    line-height: 1.5;
+    padding: 5px 10px;
+}
+
+@media (max-width: 768px) {
+    .pl-matrix-row {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    
+    .pl-matrix-cell {
+        padding: 12px 15px;
+        font-size: 14px;
+    }
+    
+    .pl-matrix-description {
+        font-size: 12px;
+    }
+}
+
+/* 列ヘッダー */
+.pl-column-header {
+    grid-template-columns: 60px 2fr 2fr 3fr !important;
+    margin-bottom: 10px;
+}
+
+.pl-column-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #2C5F7F;
+    text-align: center;
+    padding: 10px;
+    background: #E8F1F8;
+    border-radius: 4px;
+}
+
+/* 演算子の行 */
+.pl-operator-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 8px 0;
+}
+
+.pl-operator {
+    font-size: 28px;
+    font-weight: 700;
+    color: #5B8DB8;
+    background: white;
+    border: 2px solid #5B8DB8;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 演算子セル（左端の＝記号） */
+.pl-operator-cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 700;
+    color: #5B8DB8;
+}
+
+.pl-operator-cell.pl-result {
+    background: #E8F1F8;
+    border-radius: 4px;
+}
+
+/* マトリックス行の更新 */
+.pl-matrix-row {
+    display: grid;
+    grid-template-columns: 60px 2fr 2fr 3fr;
+    gap: 15px;
+    margin-bottom: 8px;
+    align-items: center;
+}
+
+.pl-matrix-header {
+    grid-template-columns: 60px 1fr;
+    margin-bottom: 15px;
+}
+
+.pl-matrix-header .pl-header-cell {
+    grid-column: 2 / -1;
+}
+
+@media (max-width: 768px) {
+    .pl-column-header,
+    .pl-matrix-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .pl-operator-cell {
+        display: none;
+    }
+    
+    .pl-column-title {
+        font-size: 12px;
+        padding: 8px;
+    }
+}
