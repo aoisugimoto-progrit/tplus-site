@@ -596,7 +596,7 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: 60px;
+            margin-bottom: var(--spacing-2xl);
             letter-spacing: 0.03em;
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
             line-height: 1.2;
@@ -657,7 +657,7 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: 50px;
+            margin-bottom: var(--spacing-xl);
             letter-spacing: 0.05em;
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
             filter: drop-shadow(0 6px 30px rgba(0, 0, 0, 0.5));
@@ -940,7 +940,7 @@
             text-align: center;
             font-size: 16px;
             color: #6B7280;
-            margin-bottom: 50px;
+            margin-bottom: var(--spacing-xl);
         }
 
         .flow-diagram {
@@ -1225,7 +1225,7 @@
             text-align: center;
             color: rgba(255, 255, 255, 0.5);
             font-size: 13px;
-            margin-bottom: 80px;
+            margin-bottom: var(--spacing-3xl);
             font-weight: 300;
             text-transform: uppercase;
             letter-spacing: 4px;
@@ -2745,7 +2745,7 @@ body {
 }
 
 .content-inner section {
-    margin-bottom: 80px;
+    margin-bottom: var(--spacing-3xl);
 }
 
 .card-grid {
