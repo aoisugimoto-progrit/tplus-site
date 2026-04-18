@@ -1335,8 +1335,8 @@
             color: rgba(15, 35, 45, 1);
             font-size: clamp(24px, 3vw, 30px);
             font-weight: 700;
-            margin-bottom: 25px;
-            padding-bottom: 15px;
+            margin-bottom: var(--spacing-md);
+            padding-bottom: var(--spacing-sm);
             border-bottom: 3px solid rgba(10, 80, 70, 0.3);
             position: relative;
         }
@@ -1356,16 +1356,16 @@
             color: rgba(15, 35, 45, 1);
             font-size: clamp(20px, 2.5vw, 24px);
             font-weight: 600;
-            margin-top: 30px;
-            margin-bottom: 15px;
+            margin-top: var(--spacing-lg);
+            margin-bottom: var(--spacing-sm);
         }
 
         section h4 {
             color: rgba(15, 35, 45, 1);
             font-size: clamp(18px, 2vw, 20px);
             font-weight: 600;
-            margin-top: 25px;
-            margin-bottom: 12px;
+            margin-top: var(--spacing-md);
+            margin-bottom: var(--spacing-sm);
         }
 
         section p {
@@ -2683,8 +2683,8 @@ body {
     background-clip: unset;
     font-size: clamp(24px, 3.5vw, 32px);
     font-weight: 700;
-    margin: 50px 0 30px 0;
-    padding-bottom: 15px;
+    margin: var(--spacing-xl) 0 var(--spacing-lg) 0;
+    padding-bottom: var(--spacing-sm);
     border-bottom: 3px solid transparent;
     border-image: linear-gradient(90deg, rgba(10, 80, 70, 1) 0%, rgba(15, 30, 80, 0.5) 100%) 1;
 }
@@ -2693,7 +2693,7 @@ body {
     color: rgba(10, 60, 55, 1);
     font-size: clamp(20px, 2.8vw, 24px);
     font-weight: 600;
-    margin: 40px 0 20px 0;
+    margin: var(--spacing-xl) 0 var(--spacing-md) 0;
 }
 
 .card {
