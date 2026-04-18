@@ -1369,8 +1369,8 @@
         }
 
         section p {
-            font-size: 17px;
-            margin-bottom: 15px;
+            font-size: 15px;
+            margin-bottom: var(--spacing-sm);
             color: #4B5563;
             line-height: 1.7;
         }
@@ -2671,8 +2671,8 @@ section .highlight-box *:not(h1):not(h2):not(h3):not(h4):not(h5):not(strong):not
    教育コンテンツ：視認性改善
    ============================================== */
 body {
-    font-size: 17px;
-    line-height: 2.0;
+    font-size: 15px;
+    line-height: 1.8;
 }
 
 .content-inner h2 {
